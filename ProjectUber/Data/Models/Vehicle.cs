@@ -17,5 +17,11 @@ namespace Data.Models
         public string Model { get; set; }
         [DefaultValue(100)]
         public int HorsePower { get; set; }
+        public override string ToString()
+        {
+            string result = "Vehicle:\n";
+            result += $"Model: {Model}";
+            return result;
+        }
     }
 }

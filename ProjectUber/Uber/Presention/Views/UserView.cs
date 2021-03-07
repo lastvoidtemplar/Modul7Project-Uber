@@ -68,7 +68,17 @@ namespace Uber.Presention.Views
             Console.WriteLine(new string(' ', 18) + "Users" + new string(' ', 17));
             Console.WriteLine(new string('-', 40));
             List<User> users = userBusiness.GetAll();
-            Console.WriteLine(String.Join("\n", users));
+            foreach (User user in users)
+            {
+                Console.WriteLine(new string('-', 40));
+                Console.WriteLine("Id: " + user.Id);
+                Console.WriteLine("First name: " + user.FirstName);
+                Console.WriteLine("Last name: " + user.LastName);
+                Console.WriteLine("Age: " + user.Age);
+                Console.WriteLine("Count orders: " + user.CountOrders);
+                Console.WriteLine(new string('-', 40));
+            }
+            Console.WriteLine(new string('-', 40));
         }
         private void Update()
         {
