@@ -24,5 +24,13 @@ namespace Data.Models
         public int Age { get; set; }
         [DefaultValue(0)]
         public int CountOrders { get; set; }
+        public override string ToString()
+        {
+            string result = "User:\n";
+            result += $"First name: {FirstName}\n";
+            result += $"Last name: {LastName}\n";
+            result += $"Age: {Age}";
+            return result;
+        }     
     }
 }

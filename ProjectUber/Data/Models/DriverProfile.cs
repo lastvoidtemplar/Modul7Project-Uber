@@ -23,5 +23,12 @@ namespace Data.Models
         [ForeignKey("Driver")]
         public int DriverId { get; set; }
         public Driver Driver { get; set; }
+        public override string ToString()
+        {
+            string result = "DriverProfile:\n";
+            result += $"Username: {Username}\n";
+            result += Driver.ToString();
+            return result;
+        }
     }
 }
