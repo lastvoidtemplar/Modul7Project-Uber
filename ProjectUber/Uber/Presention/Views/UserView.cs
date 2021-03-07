@@ -33,7 +33,7 @@ namespace Uber.Presention.Views
         {
 
             int command = 0;
-            int closedCommandId = 0;
+            int closedCommandId = 6;
             do
             {
                 ShowMenu();
