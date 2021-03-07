@@ -20,7 +20,7 @@ namespace Uber.Presention.Views
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
-            Console.WriteLine(new string(' ', 15) + "USER MENU" + new string(' ', 16));
+            Console.WriteLine(new string(' ', 12) + "USERPROFILES MENU" + new string(' ', 11));
             Console.WriteLine(new string('-', 40));
             Console.WriteLine("1. List all userprofiles");
             Console.WriteLine("2. Add new userprofile");
@@ -63,10 +63,19 @@ namespace Uber.Presention.Views
         private void ListAll()
         {
             Console.WriteLine(new string('-', 40));
-            Console.WriteLine(new string(' ', 18) + "Users" + new string(' ', 17));
+            Console.WriteLine(new string(' ', 14) + "UserProfiles" + new string(' ', 14));
             Console.WriteLine(new string('-', 40));
-            List<User> users =u.GetAll();
-            Console.WriteLine(String.Join("\n", users));
+            List<UserProfile> usersProfiles =userBusiness.GetAll();
+            foreach (UserProfile userProfile in usersProfiles)
+            {
+                Console.WriteLine(new string('-', 40));
+                Console.WriteLine("Id: " + userProfile.Id);
+                Console.WriteLine("Username: " + userProfile.Username);
+                Console.WriteLine("Password: " + userProfile.Password);
+                Console.WriteLine(userProfile.User);
+                Console.WriteLine(new string('-', 40));
+            }
+            Console.WriteLine(new string('-', 40));
         }
         private void Update()
         {
@@ -92,20 +101,19 @@ namespace Uber.Presention.Views
         {
             Console.WriteLine("Enter ID to fetch: ");
             int id = int.Parse(Console.ReadLine());
-            User user = userBusiness.Get(id);
-            if (user != null)
+            UserProfile userProfile = userBusiness.Get(id);
+            if (userProfile != null)
             {
                 Console.WriteLine(new string('-', 40));
-                Console.WriteLine("Id: " + user.Id);
-                Console.WriteLine("First name: " + user.FirstName);
-                Console.WriteLine("Last name: " + user.LastName);
-                Console.WriteLine("Age: " + user.Age);
-                Console.WriteLine("Count orders: " + user.CountOrders);
+                Console.WriteLine("Id: " + userProfile.Id);
+                Console.WriteLine("Username: " + userProfile.Username);
+                Console.WriteLine("Password: " + userProfile.Password);
+                Console.WriteLine(userProfile.User);
                 Console.WriteLine(new string('-', 40));
             }
             else
             {
-                Console.WriteLine("User not found!");
+                Console.WriteLine("Userprofile not found!");
             }
         }
         private void Delete()
