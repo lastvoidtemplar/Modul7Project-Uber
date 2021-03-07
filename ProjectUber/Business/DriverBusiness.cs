@@ -8,5 +8,7 @@ namespace Business
 {
     public class DriverBusiness
     {
+        public DriverBusiness()
+        { }
     }
 }
