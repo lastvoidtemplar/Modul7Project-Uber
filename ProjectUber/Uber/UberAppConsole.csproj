@@ -53,6 +53,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Presention\Display.cs" />
+    <Compile Include="Presention\Views\DriverProfileView.cs" />
+    <Compile Include="Presention\Views\DriverView.cs" />
+    <Compile Include="Presention\Views\OrderView.cs" />
+    <Compile Include="Presention\Views\TownView.cs" />
+    <Compile Include="Presention\Views\UserProfileView.cs" />
+    <Compile Include="Presention\Views\UserView.cs" />
+    <Compile Include="Presention\Views\VehicleView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -70,6 +78,7 @@
       <Name>Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
