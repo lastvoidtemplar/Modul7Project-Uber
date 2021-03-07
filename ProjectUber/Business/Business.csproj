@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{259172D1-F3A1-4B14-908B-1E6410448764}</ProjectGuid>
+    <ProjectGuid>{5BC0FA04-84CF-4B9A-83CF-5D005DA5C6FF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Business</RootNamespace>
@@ -60,6 +60,15 @@
     <Compile Include="TownBusiness.cs" />
     <Compile Include="UserBusiness.cs" />
     <Compile Include="UserProfileBusiness.cs" />
+     <Compile Include="DriverBusiness.cs" />
+     <Compile Include="DriverProfileBusiness.cs" /> 
+     <Compile Include="OrderBusiness.cs" />
+     <Compile Include="TownBusiness.cs" />
+     <Compile Include="UserBusiness.cs" />
+     <Compile Include="UserProfileBusiness.cs" />
+     <Compile Include="VehicleBusiness.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
