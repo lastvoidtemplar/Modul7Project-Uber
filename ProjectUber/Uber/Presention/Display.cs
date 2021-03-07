@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Uber.Presention.Views;
 
 namespace Uber.Presention
 {
@@ -31,21 +32,51 @@ namespace Uber.Presention
         {
 
             int command = 0;
-            int closedCommandId = 0;
+            int closedCommandId = 8;
             do
             {
                 ShowMenu();
                 command = int.Parse(Console.ReadLine());
                 switch (command)
                 {
-                    case 1: ListAll(); break;
-                    case 2: Add(); break;
-                    case 3: Update(); break;
-                    case 4: Fetch(); break;
-                    case 5: Delete(); break;
+                    case 1: Towns(); break;
+                    case 2: Users(); break;
+                    case 3: UserProflies(); break;
+                    case 4: Vehicles(); break;
+                    case 5: Drivers(); break;
+                    case 6: DriverProfiles(); break;
+                    case 7: Orders(); break;
                     default: break;
                 }
             } while (command != closedCommandId);
+        }
+        private void Towns()
+        {
+            TownView townView = new TownView();
+        }
+        private void Users()
+        {
+            UserView userView = new UserView();
+        }
+        private void UserProflies()
+        {
+            UserProfileView userProfileView = new UserProfileView();
+        }
+        private void Vehicles()
+        {
+            VehicleView vehicle = new VehicleView();
+        }
+        private void Drivers()
+        {
+            DriverView driverView = new DriverView();
+        }
+        private void DriverProfiles()
+        {
+            DriverProfileView driverProfileView = new DriverProfileView();
+        }
+        private void Orders()
+        {
+            OrderView orderView = new OrderView();
         }
     }
 }
