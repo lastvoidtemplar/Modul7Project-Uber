@@ -51,10 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="DriverBusiness.cs" />
     <Compile Include="DriverProfileBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VehicleBusiness.cs" />
+=======
+    <Compile Include="OrderBusiness.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TownBusiness.cs" />
+    <Compile Include="UserBusiness.cs" />
+    <Compile Include="UserProfileBusiness.cs" />
+>>>>>>> d49f9ea9c2aabe76db22e1c80118cbd0893ee56a
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
