@@ -30,5 +30,15 @@ namespace Data.Models
         [ForeignKey("Vehicle")]
         public int VehicleId { get; set; }
         public Vehicle Vehicle { get; set; }
+        public override string ToString()
+        {
+            string result = "Driver:\n";
+            result += $"First name: {FirstName}\n";
+            result += $"Last name: {LastName}\n";
+            result += $"Age: {Age}\n";
+            result += $"Rating: {Rating}\n";
+            result += Vehicle.ToString();
+            return result;
+        }
     }
 }

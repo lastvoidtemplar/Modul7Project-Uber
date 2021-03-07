@@ -18,5 +18,11 @@ namespace Data.Models
         [MaxLength(50, ErrorMessage = "Name is too long!")]
         public string Country { get; set; }
         public int ZipCode { get; set; }
+        public override string ToString()
+        {
+            string result = "Town: \n";
+            result += $"Name: {Name}";
+            return result; ;
+        }
     }
 }

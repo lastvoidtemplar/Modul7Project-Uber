@@ -23,5 +23,12 @@ namespace Data.Models
         [ForeignKey("User")]
         public int UserId { get; set; }
         public User User { get; set; }
+        public override string ToString()
+        {
+           string result = "UserProfile:\n";
+            result += $"Username: {Username}\n";
+            result += User.ToString();
+            return result;
+        }
     }
 }

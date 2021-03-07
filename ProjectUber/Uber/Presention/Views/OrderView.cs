@@ -8,5 +8,6 @@ namespace Uber.Presention.Views
 {
     public class OrderView
     {
+
     }
 }
