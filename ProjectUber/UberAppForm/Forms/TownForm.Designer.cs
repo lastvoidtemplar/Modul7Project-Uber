@@ -88,6 +88,7 @@ namespace UberAppForm.Forms
             this.DeleteButton.TabIndex = 19;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // SaveButton
             // 
@@ -100,6 +101,7 @@ namespace UberAppForm.Forms
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Visible = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // InsertButton
             // 
@@ -111,6 +113,7 @@ namespace UberAppForm.Forms
             this.InsertButton.TabIndex = 17;
             this.InsertButton.Text = "Insert";
             this.InsertButton.UseVisualStyleBackColor = true;
+            this.InsertButton.Click += new System.EventHandler(this.InsertButton_Click);
             // 
             // ZipCodeTextBox
             // 
