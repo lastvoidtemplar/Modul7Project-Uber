@@ -27,7 +27,7 @@ namespace Uber.Presention.Views
             Console.WriteLine("3. Update user");
             Console.WriteLine("4. Fetch user by ID");
             Console.WriteLine("5. Delete user by ID");
-            Console.WriteLine("6. Exit");
+            Console.WriteLine("6. Back to MAIN MENU");
         }
         private void Input()
         {
