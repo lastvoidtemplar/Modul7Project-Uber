@@ -31,15 +31,15 @@ namespace UberAppForm.Forms
         {
             this.BackButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.UpdateBt = new System.Windows.Forms.Button();
-            this.DeleteBt = new System.Windows.Forms.Button();
-            this.SaveBt = new System.Windows.Forms.Button();
-            this.InsertBt = new System.Windows.Forms.Button();
-            this.StockText = new System.Windows.Forms.TextBox();
+            this.UpdateButton = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.InsertButton = new System.Windows.Forms.Button();
+            this.ZipCodeTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.PriceText = new System.Windows.Forms.TextBox();
+            this.CountryTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.NameText = new System.Windows.Forms.TextBox();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -66,97 +66,98 @@ namespace UberAppForm.Forms
             this.dataGridView1.Size = new System.Drawing.Size(658, 366);
             this.dataGridView1.TabIndex = 21;
             // 
-            // UpdateBt
+            // UpdateButton
             // 
-            this.UpdateBt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateBt.Location = new System.Drawing.Point(115, 271);
-            this.UpdateBt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.UpdateBt.Name = "UpdateBt";
-            this.UpdateBt.Size = new System.Drawing.Size(93, 32);
-            this.UpdateBt.TabIndex = 20;
-            this.UpdateBt.Text = "Update";
-            this.UpdateBt.UseVisualStyleBackColor = true;
+            this.UpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateButton.Location = new System.Drawing.Point(115, 271);
+            this.UpdateButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(93, 32);
+            this.UpdateButton.TabIndex = 20;
+            this.UpdateButton.Text = "Update";
+            this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
-            // DeleteBt
+            // DeleteButton
             // 
-            this.DeleteBt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteBt.Location = new System.Drawing.Point(224, 271);
-            this.DeleteBt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DeleteBt.Name = "DeleteBt";
-            this.DeleteBt.Size = new System.Drawing.Size(93, 32);
-            this.DeleteBt.TabIndex = 19;
-            this.DeleteBt.Text = "Delete";
-            this.DeleteBt.UseVisualStyleBackColor = true;
+            this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteButton.Location = new System.Drawing.Point(224, 271);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(93, 32);
+            this.DeleteButton.TabIndex = 19;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
             // 
-            // SaveBt
+            // SaveButton
             // 
-            this.SaveBt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveBt.Location = new System.Drawing.Point(115, 271);
-            this.SaveBt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.SaveBt.Name = "SaveBt";
-            this.SaveBt.Size = new System.Drawing.Size(93, 32);
-            this.SaveBt.TabIndex = 18;
-            this.SaveBt.Text = "Save";
-            this.SaveBt.UseVisualStyleBackColor = true;
-            this.SaveBt.Visible = false;
+            this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveButton.Location = new System.Drawing.Point(115, 271);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(93, 32);
+            this.SaveButton.TabIndex = 18;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Visible = false;
             // 
-            // InsertBt
+            // InsertButton
             // 
-            this.InsertBt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InsertBt.Location = new System.Drawing.Point(10, 271);
-            this.InsertBt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.InsertBt.Name = "InsertBt";
-            this.InsertBt.Size = new System.Drawing.Size(93, 32);
-            this.InsertBt.TabIndex = 17;
-            this.InsertBt.Text = "Insert";
-            this.InsertBt.UseVisualStyleBackColor = true;
+            this.InsertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InsertButton.Location = new System.Drawing.Point(10, 271);
+            this.InsertButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.InsertButton.Name = "InsertButton";
+            this.InsertButton.Size = new System.Drawing.Size(93, 32);
+            this.InsertButton.TabIndex = 17;
+            this.InsertButton.Text = "Insert";
+            this.InsertButton.UseVisualStyleBackColor = true;
             // 
-            // StockText
+            // ZipCodeTextBox
             // 
-            this.StockText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StockText.Location = new System.Drawing.Point(98, 202);
-            this.StockText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.StockText.Name = "StockText";
-            this.StockText.Size = new System.Drawing.Size(196, 28);
-            this.StockText.TabIndex = 16;
+            this.ZipCodeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ZipCodeTextBox.Location = new System.Drawing.Point(98, 202);
+            this.ZipCodeTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ZipCodeTextBox.Name = "ZipCodeTextBox";
+            this.ZipCodeTextBox.Size = new System.Drawing.Size(196, 28);
+            this.ZipCodeTextBox.TabIndex = 16;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 202);
+            this.label3.Location = new System.Drawing.Point(6, 205);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 24);
+            this.label3.Size = new System.Drawing.Size(88, 24);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Stock:";
+            this.label3.Text = "ZipCode:";
             // 
-            // PriceText
+            // CountryTextBox
             // 
-            this.PriceText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PriceText.Location = new System.Drawing.Point(98, 140);
-            this.PriceText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.PriceText.Name = "PriceText";
-            this.PriceText.Size = new System.Drawing.Size(196, 28);
-            this.PriceText.TabIndex = 14;
+            this.CountryTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CountryTextBox.Location = new System.Drawing.Point(98, 140);
+            this.CountryTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CountryTextBox.Name = "CountryTextBox";
+            this.CountryTextBox.Size = new System.Drawing.Size(196, 28);
+            this.CountryTextBox.TabIndex = 14;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 140);
+            this.label2.Location = new System.Drawing.Point(6, 140);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 24);
+            this.label2.Size = new System.Drawing.Size(80, 24);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Price:";
+            this.label2.Text = "Country:";
             // 
-            // NameText
+            // NameTextBox
             // 
-            this.NameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameText.Location = new System.Drawing.Point(98, 83);
-            this.NameText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.NameText.Name = "NameText";
-            this.NameText.Size = new System.Drawing.Size(196, 28);
-            this.NameText.TabIndex = 12;
+            this.NameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameTextBox.Location = new System.Drawing.Point(98, 83);
+            this.NameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(196, 28);
+            this.NameTextBox.TabIndex = 12;
             // 
             // label1
             // 
@@ -185,15 +186,15 @@ namespace UberAppForm.Forms
             this.ClientSize = new System.Drawing.Size(1069, 405);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.UpdateBt);
-            this.Controls.Add(this.DeleteBt);
-            this.Controls.Add(this.SaveBt);
-            this.Controls.Add(this.InsertBt);
-            this.Controls.Add(this.StockText);
+            this.Controls.Add(this.UpdateButton);
+            this.Controls.Add(this.DeleteButton);
+            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.InsertButton);
+            this.Controls.Add(this.ZipCodeTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.PriceText);
+            this.Controls.Add(this.CountryTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.NameText);
+            this.Controls.Add(this.NameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BackButton);
             this.Name = "TownForm";
@@ -209,15 +210,15 @@ namespace UberAppForm.Forms
 
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button UpdateBt;
-        private System.Windows.Forms.Button DeleteBt;
-        private System.Windows.Forms.Button SaveBt;
-        private System.Windows.Forms.Button InsertBt;
-        private System.Windows.Forms.TextBox StockText;
+        private System.Windows.Forms.Button UpdateButton;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button InsertButton;
+        private System.Windows.Forms.TextBox ZipCodeTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox PriceText;
+        private System.Windows.Forms.TextBox CountryTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox NameText;
+        private System.Windows.Forms.TextBox NameTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
     }
