@@ -30,12 +30,12 @@ namespace UberAppForm
         private void InitializeComponent()
         {
             this.OpenTownForm = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.OpenUserForm = new System.Windows.Forms.Button();
+            this.OpenUserProfileForm = new System.Windows.Forms.Button();
+            this.OpenDriverProfileForm = new System.Windows.Forms.Button();
+            this.OpenDriverForm = new System.Windows.Forms.Button();
+            this.OpenVehicleForm = new System.Windows.Forms.Button();
+            this.OpenOrderForm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OpenTownForm
@@ -48,71 +48,77 @@ namespace UberAppForm
             this.OpenTownForm.UseVisualStyleBackColor = true;
             this.OpenTownForm.Click += new System.EventHandler(this.OpenTownForm_Click);
             // 
-            // button2
+            // OpenUserForm
             // 
-            this.button2.Location = new System.Drawing.Point(47, 107);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(242, 51);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.OpenUserForm.Location = new System.Drawing.Point(47, 107);
+            this.OpenUserForm.Name = "OpenUserForm";
+            this.OpenUserForm.Size = new System.Drawing.Size(242, 51);
+            this.OpenUserForm.TabIndex = 1;
+            this.OpenUserForm.Text = "button2";
+            this.OpenUserForm.UseVisualStyleBackColor = true;
+            this.OpenUserForm.Click += new System.EventHandler(this.OpenUserForm_Click);
             // 
-            // button3
+            // OpenUserProfileForm
             // 
-            this.button3.Location = new System.Drawing.Point(47, 193);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(242, 51);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.OpenUserProfileForm.Location = new System.Drawing.Point(47, 193);
+            this.OpenUserProfileForm.Name = "OpenUserProfileForm";
+            this.OpenUserProfileForm.Size = new System.Drawing.Size(242, 51);
+            this.OpenUserProfileForm.TabIndex = 2;
+            this.OpenUserProfileForm.Text = "button3";
+            this.OpenUserProfileForm.UseVisualStyleBackColor = true;
+            this.OpenUserProfileForm.Click += new System.EventHandler(this.OpenUserProfileForm_Click);
             // 
-            // button4
+            // OpenDriverProfileForm
             // 
-            this.button4.Location = new System.Drawing.Point(449, 193);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(242, 51);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.OpenDriverProfileForm.Location = new System.Drawing.Point(449, 193);
+            this.OpenDriverProfileForm.Name = "OpenDriverProfileForm";
+            this.OpenDriverProfileForm.Size = new System.Drawing.Size(242, 51);
+            this.OpenDriverProfileForm.TabIndex = 5;
+            this.OpenDriverProfileForm.Text = "button4";
+            this.OpenDriverProfileForm.UseVisualStyleBackColor = true;
+            this.OpenDriverProfileForm.Click += new System.EventHandler(this.OpenDriverProfileForm_Click);
             // 
-            // button5
+            // OpenDriverForm
             // 
-            this.button5.Location = new System.Drawing.Point(449, 107);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(242, 51);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.OpenDriverForm.Location = new System.Drawing.Point(449, 107);
+            this.OpenDriverForm.Name = "OpenDriverForm";
+            this.OpenDriverForm.Size = new System.Drawing.Size(242, 51);
+            this.OpenDriverForm.TabIndex = 4;
+            this.OpenDriverForm.Text = "button5";
+            this.OpenDriverForm.UseVisualStyleBackColor = true;
+            this.OpenDriverForm.Click += new System.EventHandler(this.OpenDriverForm_Click);
             // 
-            // button6
+            // OpenVehicleForm
             // 
-            this.button6.Location = new System.Drawing.Point(449, 18);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(242, 51);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.OpenVehicleForm.Location = new System.Drawing.Point(449, 18);
+            this.OpenVehicleForm.Name = "OpenVehicleForm";
+            this.OpenVehicleForm.Size = new System.Drawing.Size(242, 51);
+            this.OpenVehicleForm.TabIndex = 3;
+            this.OpenVehicleForm.Text = "button6";
+            this.OpenVehicleForm.UseVisualStyleBackColor = true;
+            this.OpenVehicleForm.Click += new System.EventHandler(this.OpenVehicleForm_Click);
             // 
-            // button7
+            // OpenOrderForm
             // 
-            this.button7.Location = new System.Drawing.Point(249, 294);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(242, 51);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
+            this.OpenOrderForm.Location = new System.Drawing.Point(249, 294);
+            this.OpenOrderForm.Name = "OpenOrderForm";
+            this.OpenOrderForm.Size = new System.Drawing.Size(242, 51);
+            this.OpenOrderForm.TabIndex = 6;
+            this.OpenOrderForm.Text = "button7";
+            this.OpenOrderForm.UseVisualStyleBackColor = true;
+            this.OpenOrderForm.Click += new System.EventHandler(this.OpenOrderForm_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 391);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.OpenOrderForm);
+            this.Controls.Add(this.OpenDriverProfileForm);
+            this.Controls.Add(this.OpenDriverForm);
+            this.Controls.Add(this.OpenVehicleForm);
+            this.Controls.Add(this.OpenUserProfileForm);
+            this.Controls.Add(this.OpenUserForm);
             this.Controls.Add(this.OpenTownForm);
             this.Name = "MainForm";
             this.Text = "Form1";
@@ -123,12 +129,12 @@ namespace UberAppForm
         #endregion
 
         private System.Windows.Forms.Button OpenTownForm;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button OpenUserForm;
+        private System.Windows.Forms.Button OpenUserProfileForm;
+        private System.Windows.Forms.Button OpenDriverProfileForm;
+        private System.Windows.Forms.Button OpenDriverForm;
+        private System.Windows.Forms.Button OpenVehicleForm;
+        private System.Windows.Forms.Button OpenOrderForm;
     }
 }
 

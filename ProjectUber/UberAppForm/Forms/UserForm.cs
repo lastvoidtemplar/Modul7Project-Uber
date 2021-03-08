@@ -24,7 +24,7 @@ namespace UberAppForm.Forms
 
         public MainForm main;
 
-        private void TownForm_Load(object sender, EventArgs e)
+        private void UserForm_Load(object sender, EventArgs e)
         {
             UpdateGrid();
             ClearTextBoxes();
@@ -153,5 +153,7 @@ namespace UberAppForm.Forms
             main.Show();
             this.Close();
         }
+
+       
     }
 }

@@ -25,5 +25,46 @@ namespace UberAppForm
             townForm.Show();
             this.Hide();
         }
+
+      
+
+        private void OpenUserForm_Click(object sender, EventArgs e)
+        {
+            UserForm userForm = new UserForm();
+            userForm.main = this;
+            userForm.Show();
+            this.Hide();
+        }
+
+        private void OpenUserProfileForm_Click(object sender, EventArgs e)
+        {
+            UserProfileForm userProfileForm = new UserProfileForm();
+            userProfileForm.main = this;
+            userProfileForm.Show();
+            this.Hide();
+        }
+
+        private void OpenVehicleForm_Click(object sender, EventArgs e)
+        {
+            VehicleForm vehicleProfileForm = new VehicleForm();
+            vehicleProfileForm.main = this;
+            vehicleProfileForm.Show();
+            this.Hide();
+        }
+
+        private void OpenDriverForm_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void OpenDriverProfileForm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OpenOrderForm_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
