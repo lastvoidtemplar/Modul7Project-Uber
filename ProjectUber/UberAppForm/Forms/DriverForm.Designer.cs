@@ -55,7 +55,7 @@ namespace UberAppForm.Forms
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(140, 19);
+            this.label4.Location = new System.Drawing.Point(118, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 29);
             this.label4.TabIndex = 35;
@@ -241,7 +241,7 @@ namespace UberAppForm.Forms
             this.label7.TabIndex = 40;
             this.label7.Text = "Vehicle id:";
             // 
-            // DriverTown
+            // DriverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -265,7 +265,7 @@ namespace UberAppForm.Forms
             this.Controls.Add(this.FirstNameTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BackButton);
-            this.Name = "DriverTown";
+            this.Name = "DriverForm";
             this.Text = "Driver";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

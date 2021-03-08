@@ -47,7 +47,7 @@ namespace UberAppForm.Forms
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(140, 19);
+            this.label4.Location = new System.Drawing.Point(110, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 29);
             this.label4.TabIndex = 35;
@@ -67,7 +67,7 @@ namespace UberAppForm.Forms
             // UpdateButton
             // 
             this.UpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateButton.Location = new System.Drawing.Point(130, 236);
+            this.UpdateButton.Location = new System.Drawing.Point(130, 254);
             this.UpdateButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(93, 32);
@@ -78,7 +78,7 @@ namespace UberAppForm.Forms
             // DeleteButton
             // 
             this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteButton.Location = new System.Drawing.Point(239, 236);
+            this.DeleteButton.Location = new System.Drawing.Point(239, 254);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(93, 32);
@@ -89,7 +89,7 @@ namespace UberAppForm.Forms
             // SaveButton
             // 
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.Location = new System.Drawing.Point(130, 236);
+            this.SaveButton.Location = new System.Drawing.Point(130, 254);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(93, 32);
@@ -101,7 +101,7 @@ namespace UberAppForm.Forms
             // InsertButton
             // 
             this.InsertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InsertButton.Location = new System.Drawing.Point(25, 236);
+            this.InsertButton.Location = new System.Drawing.Point(25, 254);
             this.InsertButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.InsertButton.Name = "InsertButton";
             this.InsertButton.Size = new System.Drawing.Size(93, 32);
@@ -150,7 +150,7 @@ namespace UberAppForm.Forms
             // BackButton
             // 
             this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BackButton.Location = new System.Drawing.Point(25, 300);
+            this.BackButton.Location = new System.Drawing.Point(25, 318);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(109, 32);
             this.BackButton.TabIndex = 23;
