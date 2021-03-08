@@ -16,5 +16,10 @@ namespace UberAppForm.Forms
         {
             InitializeComponent();
         }
+
+        private void InsertButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

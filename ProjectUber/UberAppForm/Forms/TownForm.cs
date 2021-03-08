@@ -30,12 +30,6 @@ namespace UberAppForm.Forms
             ClearTextBoxes();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            main.Show();
-            this.Close();
-        }
-
         private void UpdateGrid()
         {
             dataGridView1.DataSource = townBusiness.GetAll();
@@ -147,6 +141,12 @@ namespace UberAppForm.Forms
                 UpdateGrid();
                 ResetSelect();
             }
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            main.Show();
+            this.Close();
         }
     }
 }
