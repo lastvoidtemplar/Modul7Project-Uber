@@ -97,6 +97,7 @@ namespace UberAppForm.Forms
             this.UpdateButton.TabIndex = 52;
             this.UpdateButton.Text = "Update";
             this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // DeleteButton
             // 
@@ -108,6 +109,7 @@ namespace UberAppForm.Forms
             this.DeleteButton.TabIndex = 51;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // SaveButton
             // 
@@ -120,6 +122,7 @@ namespace UberAppForm.Forms
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Visible = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // InsertButton
             // 
@@ -131,6 +134,7 @@ namespace UberAppForm.Forms
             this.InsertButton.TabIndex = 49;
             this.InsertButton.Text = "Insert";
             this.InsertButton.UseVisualStyleBackColor = true;
+            this.InsertButton.Click += new System.EventHandler(this.InsertButton_Click);
             // 
             // AgeTextBox
             // 
@@ -198,6 +202,7 @@ namespace UberAppForm.Forms
             this.BackButton.TabIndex = 42;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // UserForm
             // 
