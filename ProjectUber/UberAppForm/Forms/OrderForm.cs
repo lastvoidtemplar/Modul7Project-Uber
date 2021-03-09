@@ -40,7 +40,7 @@ namespace UberAppForm.Forms
         }
         private void UpdateGrid()
         {
-            dataGridView1.DataSource = userProfileBusiness.GetAll();
+            dataGridView1.DataSource = orderBusiness.GetAll();
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
