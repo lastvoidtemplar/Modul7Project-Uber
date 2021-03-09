@@ -152,8 +152,6 @@ namespace UberAppForm.Forms
         {
             main.Show();
             this.Close();
-        }
-
-       
+        }       
     }
 }

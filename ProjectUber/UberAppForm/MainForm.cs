@@ -46,20 +46,26 @@ namespace UberAppForm
 
         private void OpenVehicleForm_Click(object sender, EventArgs e)
         {
-            VehicleForm vehicleProfileForm = new VehicleForm();
-            vehicleProfileForm.main = this;
-            vehicleProfileForm.Show();
+            VehicleForm vehicleForm = new VehicleForm();
+            vehicleForm.main = this;
+            vehicleForm.Show();
             this.Hide();
         }
 
         private void OpenDriverForm_Click(object sender, EventArgs e)
         {
-            
+            DriverForm driverForm = new DriverForm();
+            driverForm.main = this;
+            driverForm.Show();
+            this.Hide();
         }
 
         private void OpenDriverProfileForm_Click(object sender, EventArgs e)
         {
-
+            DriverProfileForm driverProfileForm = new DriverProfileForm();
+            driverProfileForm.main = this;
+            driverProfileForm.Show();
+            this.Hide();
         }
 
         private void OpenOrderForm_Click(object sender, EventArgs e)
