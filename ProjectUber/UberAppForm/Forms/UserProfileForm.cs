@@ -17,7 +17,7 @@ namespace UberAppForm.Forms
         private UserProfileBusiness userProfileBusiness = new UserProfileBusiness();
         private UserBusiness userBusiness = new UserBusiness();
         private int editid = 0;
-        private int selectedUsert = 0;
+        private int selectedUser = 0;
         public UserProfileForm()
         {
             InitializeComponent();
@@ -30,6 +30,7 @@ namespace UberAppForm.Forms
             UpdateGrid();
             UpdateUserGrid();
             ClearTextBoxes();
+            selectedUser = userBusiness.GetAll().FirstOrDefault().Id;
         }
 
         private void UpdateGrid()
@@ -57,7 +58,7 @@ namespace UberAppForm.Forms
                 var id = int.Parse(item[0].Value.ToString());
                 return id;
             }
-            return userBusiness.GetAll().First().Id;
+            return selectedUser;
         }
         private void InsertButton_Click(object sender, EventArgs e)
         {
@@ -80,7 +81,7 @@ namespace UberAppForm.Forms
             UsernameTextBox.Text = userProfile.Username;
             PasswordTextBox.Text = userProfile.Password;
             dataGridView2.ClearSelection();
-            selectedUsert = userProfile.UserId;
+            selectedUser = userProfile.UserId;
         }
 
         private void ToggleSaveUpdate()
@@ -121,14 +122,10 @@ namespace UberAppForm.Forms
             userProfile.Id = editid;
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
-            if (dataGridView2.SelectedRows.Count > 0)
-            {
-                var item = dataGridView1.SelectedRows[0].Cells;
-                selectedUsert = int.Parse(item[0].Value.ToString());
-            }
+            selectedUser = GetIdOfSelectedUser();
             userProfile.Username = username; ;
             userProfile.Password = password;
-            userProfile.UserId = selectedUsert;
+            userProfile.UserId = selectedUser;
             return userProfile;
         }
 
