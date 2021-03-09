@@ -18,6 +18,7 @@ namespace UberAppForm.Forms
         private UserBusiness userBusiness = new UserBusiness();
         private int editid = 0;
         private int selectedUsert = 0;
+
         public UserProfileForm()
         {
             InitializeComponent();
@@ -38,17 +39,20 @@ namespace UberAppForm.Forms
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
         private void UpdateUserGrid()
         {        
             dataGridView2.DataSource = userBusiness.GetAll();
             dataGridView2.ReadOnly = true;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+
         private void ClearTextBoxes()
         {
             UsernameTextBox.Text = "";
             PasswordTextBox.Text = "";         
         }
+
         private int GetIdOfSelectedUser()
         {
             if (dataGridView2.SelectedRows.Count > 0)
@@ -59,15 +63,16 @@ namespace UberAppForm.Forms
             }
             return userBusiness.GetAll().First().Id;
         }
+
         private void InsertButton_Click(object sender, EventArgs e)
         {
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
-            int user_id = GetIdOfSelectedUser();
+            int userId = GetIdOfSelectedUser();
             UserProfile userProfile = new UserProfile();
             userProfile.Username = username;
             userProfile.Password = password;
-            userProfile.UserId = user_id;
+            userProfile.UserId = userId;
             userProfileBusiness.Add(userProfile);
             UpdateGrid();
             ClearTextBoxes();

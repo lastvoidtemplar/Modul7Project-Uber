@@ -76,6 +76,7 @@ namespace UberAppForm.Forms
             this.UpdateButton.TabIndex = 33;
             this.UpdateButton.Text = "Update";
             this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // DeleteButton
             // 
@@ -87,6 +88,7 @@ namespace UberAppForm.Forms
             this.DeleteButton.TabIndex = 32;
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // SaveButton
             // 
@@ -99,6 +101,7 @@ namespace UberAppForm.Forms
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Visible = false;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // InsertButton
             // 
@@ -110,6 +113,7 @@ namespace UberAppForm.Forms
             this.InsertButton.TabIndex = 30;
             this.InsertButton.Text = "Insert";
             this.InsertButton.UseVisualStyleBackColor = true;
+            this.InsertButton.Click += new System.EventHandler(this.InsertButton_Click_1);
             // 
             // DriverIdTextBox
             // 
@@ -177,6 +181,7 @@ namespace UberAppForm.Forms
             this.BackButton.TabIndex = 23;
             this.BackButton.Text = "Back";
             this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // DriverProfileForm
             // 
@@ -198,6 +203,7 @@ namespace UberAppForm.Forms
             this.Controls.Add(this.BackButton);
             this.Name = "DriverProfileForm";
             this.Text = "DriverProfileForm";
+            this.Load += new System.EventHandler(this.DriverProfileForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
