@@ -30,7 +30,7 @@ namespace UberAppForm.Forms
             UpdateGrid();
             UpdateUserGrid();
             ClearTextBoxes();
-            selectedUser = userBusiness.GetAll().FirstOrDefault().Id;
+            if(userBusiness.GetAll().Count!=0) selectedUser = userBusiness.GetAll().FirstOrDefault().Id;
         }
 
         private void UpdateGrid()

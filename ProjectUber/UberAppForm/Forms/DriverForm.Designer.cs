@@ -44,11 +44,12 @@ namespace UberAppForm.Forms
             this.BackButton = new System.Windows.Forms.Button();
             this.CountOrdersTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.RatingTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.VechicleIdTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.RatingTextBox = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -69,13 +70,13 @@ namespace UberAppForm.Forms
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(658, 484);
+            this.dataGridView1.Size = new System.Drawing.Size(658, 579);
             this.dataGridView1.TabIndex = 34;
             // 
             // UpdateButton
             // 
             this.UpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateButton.Location = new System.Drawing.Point(123, 400);
+            this.UpdateButton.Location = new System.Drawing.Point(123, 494);
             this.UpdateButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(93, 32);
@@ -86,7 +87,7 @@ namespace UberAppForm.Forms
             // DeleteButton
             // 
             this.DeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteButton.Location = new System.Drawing.Point(232, 400);
+            this.DeleteButton.Location = new System.Drawing.Point(232, 494);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(93, 32);
@@ -98,7 +99,7 @@ namespace UberAppForm.Forms
             // SaveButton
             // 
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.Location = new System.Drawing.Point(123, 400);
+            this.SaveButton.Location = new System.Drawing.Point(123, 494);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(93, 32);
@@ -111,7 +112,7 @@ namespace UberAppForm.Forms
             // InsertButton
             // 
             this.InsertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InsertButton.Location = new System.Drawing.Point(18, 400);
+            this.InsertButton.Location = new System.Drawing.Point(18, 494);
             this.InsertButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.InsertButton.Name = "InsertButton";
             this.InsertButton.Size = new System.Drawing.Size(93, 32);
@@ -180,7 +181,7 @@ namespace UberAppForm.Forms
             // BackButton
             // 
             this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BackButton.Location = new System.Drawing.Point(18, 471);
+            this.BackButton.Location = new System.Drawing.Point(18, 565);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(109, 32);
             this.BackButton.TabIndex = 23;
@@ -207,15 +208,6 @@ namespace UberAppForm.Forms
             this.label5.TabIndex = 36;
             this.label5.Text = "Count Orders:";
             // 
-            // RatingTextBox
-            // 
-            this.RatingTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RatingTextBox.Location = new System.Drawing.Point(88, 294);
-            this.RatingTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.RatingTextBox.Name = "RatingTextBox";
-            this.RatingTextBox.Size = new System.Drawing.Size(196, 28);
-            this.RatingTextBox.TabIndex = 39;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -225,15 +217,6 @@ namespace UberAppForm.Forms
             this.label6.Size = new System.Drawing.Size(68, 24);
             this.label6.TabIndex = 38;
             this.label6.Text = "Rating:";
-            // 
-            // VechicleIdTextBox
-            // 
-            this.VechicleIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VechicleIdTextBox.Location = new System.Drawing.Point(119, 345);
-            this.VechicleIdTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.VechicleIdTextBox.Name = "VechicleIdTextBox";
-            this.VechicleIdTextBox.Size = new System.Drawing.Size(196, 28);
-            this.VechicleIdTextBox.TabIndex = 41;
             // 
             // label7
             // 
@@ -245,12 +228,32 @@ namespace UberAppForm.Forms
             this.label7.TabIndex = 40;
             this.label7.Text = "Vehicle id:";
             // 
+            // RatingTextBox
+            // 
+            this.RatingTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RatingTextBox.Location = new System.Drawing.Point(88, 294);
+            this.RatingTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.RatingTextBox.Name = "RatingTextBox";
+            this.RatingTextBox.Size = new System.Drawing.Size(196, 28);
+            this.RatingTextBox.TabIndex = 39;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(18, 376);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(336, 97);
+            this.dataGridView2.TabIndex = 61;
+            // 
             // DriverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1069, 516);
-            this.Controls.Add(this.VechicleIdTextBox);
+            this.ClientSize = new System.Drawing.Size(1069, 611);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.RatingTextBox);
             this.Controls.Add(this.label6);
@@ -273,6 +276,7 @@ namespace UberAppForm.Forms
             this.Text = "Driver";
             this.Load += new System.EventHandler(this.DriverForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,9 +299,9 @@ namespace UberAppForm.Forms
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.TextBox CountOrdersTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox RatingTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox VechicleIdTextBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox RatingTextBox;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }

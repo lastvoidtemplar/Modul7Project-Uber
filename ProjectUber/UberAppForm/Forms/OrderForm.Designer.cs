@@ -105,7 +105,7 @@ namespace UberAppForm.Forms
             // UpdateButton
             // 
             this.UpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateButton.Location = new System.Drawing.Point(117, 655);
+            this.UpdateButton.Location = new System.Drawing.Point(117, 623);
             this.UpdateButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(93, 32);

@@ -31,6 +31,7 @@ namespace UberAppForm.Forms
             UpdateGrid();
             UpdateVehicleGrid();
             ClearTextBoxes();
+            if (driverBusiness.GetAll().Count != 0)  selectedVehicle = vehicleBusiness.GetAll().First().Id; ;
         }
 
         private void UpdateGrid()
@@ -64,7 +65,7 @@ namespace UberAppForm.Forms
                 var id = int.Parse(item[0].Value.ToString());
                 return id;
             }
-            return vehicleBusiness.GetAll().First().Id;
+            return selectedVehicle;
         }
 
         private void InsertButton_Click(object sender, EventArgs e)
@@ -146,11 +147,7 @@ namespace UberAppForm.Forms
             int.TryParse(CountOrdersTextBox.Text, out countOrders);
             int rating = 0;
             int.TryParse(RatingTextBox.Text, out rating);
-            if (dataGridView2.SelectedRows.Count > 0)
-            {
-                var item = dataGridView1.SelectedRows[0].Cells;
-                selectedVehicle = int.Parse(item[0].Value.ToString());
-            }
+            selectedVehicle = GetIdOfSelectedVehicle();
             driver.FirstName = firstName;
             driver.LastName = lastName;
             driver.Age = age;

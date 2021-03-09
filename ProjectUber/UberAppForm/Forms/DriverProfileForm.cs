@@ -31,6 +31,7 @@ namespace UberAppForm.Forms
             UpdateGrid();
             UpdateDriverGrid();
             ClearTextBoxes();
+            if (driverBusiness.GetAll().Count != 0) selectedDriver = driverBusiness.GetAll().First().Id;
         }
 
         private void UpdateGrid()
@@ -61,10 +62,10 @@ namespace UberAppForm.Forms
                 var id = int.Parse(item[0].Value.ToString());
                 return id;
             }
-            return driverBusiness.GetAll().First().Id;
+            return selectedDriver;
         }
 
-        private void InsertButton_Click_1(object sender, EventArgs e)
+        private void InsertButton_Click(object sender, EventArgs e)
         {
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
@@ -125,12 +126,8 @@ namespace UberAppForm.Forms
             DriverProfile driverProfile = new DriverProfile();
             driverProfile.Id = editid;
             string username = UsernameTextBox.Text;
-            string password = PasswordTextBox.Text;
-            if (dataGridView2.SelectedRows.Count > 0)
-            {
-                var item = dataGridView1.SelectedRows[0].Cells;
-                selectedDriver = int.Parse(item[0].Value.ToString());
-            }
+            string password = PasswordTextBox.Text;  
+            selectedDriver = GetIdOfSelectedDriver();
             driverProfile.Username = username; ;
             driverProfile.Password = password;
             driverProfile.DriverId = selectedDriver;

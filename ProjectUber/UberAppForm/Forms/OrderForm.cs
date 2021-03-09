@@ -34,9 +34,9 @@ namespace UberAppForm.Forms
             UpdateDriverProfileGrid();
             UpdateTownGrid();
             ClearTextBoxes();
-            selectedUser = userProfileBusiness.GetAll().FirstOrDefault().Id; ;
-            selectedDriver = driverProfileBusiness.GetAll().FirstOrDefault().Id; ;
-            selectedTown = townBusiness.GetAll().FirstOrDefault().Id;
+            if (userProfileBusiness.GetAll().Count != 0) selectedUser = userProfileBusiness.GetAll().FirstOrDefault().Id; ;
+            if (driverProfileBusiness.GetAll().Count != 0) selectedDriver = driverProfileBusiness.GetAll().FirstOrDefault().Id; ;
+            if (townBusiness.GetAll().Count != 0) selectedTown = townBusiness.GetAll().FirstOrDefault().Id;
         }
         private void UpdateGrid()
         {
