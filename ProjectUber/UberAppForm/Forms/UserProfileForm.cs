@@ -14,20 +14,52 @@ namespace UberAppForm.Forms
 {
     public partial class UserProfileForm : Form
     {
-        
+        private UserProfileBusiness userProfileBusiness = new UserProfileBusiness();
+        private UserBusiness userBusiness = new UserBusiness();
+        private int editid = 0;
+        private int selectedUser = 0;
         public UserProfileForm()
         {
             InitializeComponent();
         }
 
-        
+        public MainForm main;
 
         private void UserProfileForm_Load(object sender, EventArgs e)
         {
-            
+            UpdateGrid();
+            UpdateUserGrid();
+            ClearTextBoxes();
+            selectedUser = userBusiness.GetAll().FirstOrDefault().Id;
         }
 
-       
+        private void UpdateGrid()
+        {
+            dataGridView1.DataSource = userProfileBusiness.GetAll();
+            dataGridView1.ReadOnly = true;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+        private void UpdateUserGrid()
+        {
+            dataGridView2.DataSource = userBusiness.GetAll();
+            dataGridView2.ReadOnly = true;
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+        private void ClearTextBoxes()
+        {
+            UsernameTextBox.Text = "";
+            PasswordTextBox.Text = "";
+        }
+        private int GetIdOfSelectedUser()
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                var item = dataGridView2.SelectedRows[0].Cells;
+                var id = int.Parse(item[0].Value.ToString());
+                return id;
+            }
+            return selectedUser;
+        }
         private void InsertButton_Click(object sender, EventArgs e)
         {
             string username = UsernameTextBox.Text;
@@ -52,28 +84,85 @@ namespace UberAppForm.Forms
             selectedUser = userProfile.UserId;
         }
 
-     
+        private void ToggleSaveUpdate()
+        {
+            if (UpdateButton.Visible)
+            {
+                UpdateButton.Visible = false;
+                SaveButton.Visible = true;
+            }
+            else
+            {
+                UpdateButton.Visible = true;
+                SaveButton.Visible = false;
+            }
+        }
 
         private void UpdateButton_Click(object sender, EventArgs e)
         {
-            
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var item = dataGridView1.SelectedRows[0].Cells;
+                var id = int.Parse(item[0].Value.ToString());
+                UpdateTextBoxes(id);
+                ToggleSaveUpdate();
+                DisableSelect();
+                editid = id;
+            }
         }
 
-        
+        private void DisableSelect()
+        {
+            dataGridView1.Enabled = false;
+        }
+
+        private UserProfile GetEditUserProfile()
+        {
+            UserProfile userProfile = new UserProfile();
+            userProfile.Id = editid;
+            string username = UsernameTextBox.Text;
+            string password = PasswordTextBox.Text;
+            selectedUser = GetIdOfSelectedUser();
+            userProfile.Username = username; ;
+            userProfile.Password = password;
+            userProfile.UserId = selectedUser;
+            return userProfile;
+        }
+
+        private void ResetSelect()
+        {
+
+            dataGridView1.ClearSelection();
+            dataGridView1.Enabled = true;
+        }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-           
+            UserProfile editUserProfile = GetEditUserProfile();
+            userProfileBusiness.Update(editUserProfile);
+            UpdateGrid();
+            ResetSelect();
+            ToggleSaveUpdate();
+            ClearTextBoxes();
+            dataGridView2.ClearSelection();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                var item = dataGridView1.SelectedRows[0].Cells;
+                var id = int.Parse(item[0].Value.ToString());
+                userProfileBusiness.Delete(id);
+                UpdateGrid();
+                ResetSelect();
+            }
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            
+            main.Show();
+            this.Close();
         }
     }
 }
