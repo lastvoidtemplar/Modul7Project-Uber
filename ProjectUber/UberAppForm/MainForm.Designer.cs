@@ -44,7 +44,7 @@ namespace UberAppForm
             this.OpenTownForm.Name = "OpenTownForm";
             this.OpenTownForm.Size = new System.Drawing.Size(242, 51);
             this.OpenTownForm.TabIndex = 0;
-            this.OpenTownForm.Text = "button1";
+            this.OpenTownForm.Text = "Towns";
             this.OpenTownForm.UseVisualStyleBackColor = true;
             this.OpenTownForm.Click += new System.EventHandler(this.OpenTownForm_Click);
             // 
@@ -54,7 +54,7 @@ namespace UberAppForm
             this.OpenUserForm.Name = "OpenUserForm";
             this.OpenUserForm.Size = new System.Drawing.Size(242, 51);
             this.OpenUserForm.TabIndex = 1;
-            this.OpenUserForm.Text = "button2";
+            this.OpenUserForm.Text = "Users";
             this.OpenUserForm.UseVisualStyleBackColor = true;
             this.OpenUserForm.Click += new System.EventHandler(this.OpenUserForm_Click);
             // 
@@ -64,7 +64,7 @@ namespace UberAppForm
             this.OpenUserProfileForm.Name = "OpenUserProfileForm";
             this.OpenUserProfileForm.Size = new System.Drawing.Size(242, 51);
             this.OpenUserProfileForm.TabIndex = 2;
-            this.OpenUserProfileForm.Text = "button3";
+            this.OpenUserProfileForm.Text = "UserProfiles";
             this.OpenUserProfileForm.UseVisualStyleBackColor = true;
             this.OpenUserProfileForm.Click += new System.EventHandler(this.OpenUserProfileForm_Click);
             // 
@@ -74,7 +74,7 @@ namespace UberAppForm
             this.OpenDriverProfileForm.Name = "OpenDriverProfileForm";
             this.OpenDriverProfileForm.Size = new System.Drawing.Size(242, 51);
             this.OpenDriverProfileForm.TabIndex = 5;
-            this.OpenDriverProfileForm.Text = "button4";
+            this.OpenDriverProfileForm.Text = "DriverProfiles";
             this.OpenDriverProfileForm.UseVisualStyleBackColor = true;
             this.OpenDriverProfileForm.Click += new System.EventHandler(this.OpenDriverProfileForm_Click);
             // 
@@ -84,7 +84,7 @@ namespace UberAppForm
             this.OpenDriverForm.Name = "OpenDriverForm";
             this.OpenDriverForm.Size = new System.Drawing.Size(242, 51);
             this.OpenDriverForm.TabIndex = 4;
-            this.OpenDriverForm.Text = "button5";
+            this.OpenDriverForm.Text = "Drivers";
             this.OpenDriverForm.UseVisualStyleBackColor = true;
             this.OpenDriverForm.Click += new System.EventHandler(this.OpenDriverForm_Click);
             // 
@@ -94,7 +94,7 @@ namespace UberAppForm
             this.OpenVehicleForm.Name = "OpenVehicleForm";
             this.OpenVehicleForm.Size = new System.Drawing.Size(242, 51);
             this.OpenVehicleForm.TabIndex = 3;
-            this.OpenVehicleForm.Text = "button6";
+            this.OpenVehicleForm.Text = "Vehicles";
             this.OpenVehicleForm.UseVisualStyleBackColor = true;
             this.OpenVehicleForm.Click += new System.EventHandler(this.OpenVehicleForm_Click);
             // 
@@ -104,7 +104,7 @@ namespace UberAppForm
             this.OpenOrderForm.Name = "OpenOrderForm";
             this.OpenOrderForm.Size = new System.Drawing.Size(242, 51);
             this.OpenOrderForm.TabIndex = 6;
-            this.OpenOrderForm.Text = "button7";
+            this.OpenOrderForm.Text = "Orders";
             this.OpenOrderForm.UseVisualStyleBackColor = true;
             this.OpenOrderForm.Click += new System.EventHandler(this.OpenOrderForm_Click);
             // 
