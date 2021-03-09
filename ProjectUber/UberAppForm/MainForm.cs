@@ -70,7 +70,10 @@ namespace UberAppForm
 
         private void OpenOrderForm_Click(object sender, EventArgs e)
         {
-
+            OrderForm orderForm = new OrderForm();
+            orderForm.main = this;
+            orderForm.Show();
+            this.Hide();
         }
     }
 }
