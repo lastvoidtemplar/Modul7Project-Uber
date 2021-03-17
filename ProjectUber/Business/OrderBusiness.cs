@@ -11,52 +11,44 @@ namespace Business
     public class OrderBusiness
     {
         private UberContext uberContext;
+        public OrderBusiness(UberContext uberContext)
+        {
+            this.uberContext = uberContext;
+        }
+
+        public OrderBusiness()
+        {
+            uberContext = new UberContext();
+        }
         public List<Order> GetAll()
         {
-            using (uberContext = new UberContext())
-            {
-                return uberContext.Orders.ToList();
-            }
+            return uberContext.Orders.ToList();
         }
         public Order Get(int id)
         {
-            using (uberContext = new UberContext())
-            {
-                return uberContext.Orders.Find(id);
-            }
-
+            return uberContext.Orders.FirstOrDefault(m => m.Id == id);
         }
         public void Add(Order order)
         {
-            using (uberContext = new UberContext())
-            {
-                uberContext.Orders.Add(order);
-                uberContext.SaveChanges();
-            }
+            uberContext.Orders.Add(order);
+            uberContext.SaveChanges();
         }
         public void Update(Order order)
         {
-            using (uberContext = new UberContext())
+            var item = uberContext.Orders.FirstOrDefault(m => m.Id == order.Id);
+            if (item != null)
             {
-                var item = uberContext.Orders.Find(order.Id);
-                if (item != null)
-                {
-                    uberContext.Entry(item).CurrentValues.SetValues(order);
-                    uberContext.SaveChanges();
-                }
+                uberContext.Entry(item).CurrentValues.SetValues(order);
+                uberContext.SaveChanges();
             }
         }
         public void Delete(int id)
         {
-
-            using (uberContext = new UberContext())
+            var item = uberContext.Orders.Find(id);
+            if (item != null)
             {
-                var item = uberContext.Orders.Find(id);
-                if (item != null)
-                {
-                    uberContext.Orders.Remove(item);
-                    uberContext.SaveChanges();
-                }
+                uberContext.Orders.Remove(item);
+                uberContext.SaveChanges();
             }
         }
     }

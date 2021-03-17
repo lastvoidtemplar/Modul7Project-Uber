@@ -13,13 +13,13 @@ namespace Data
         public UberContext() : base("Name=UberContext")
         { 
         }
-        public DbSet<User> Users { get; set; }
-        public DbSet<UserProfile> UserProfiles { get; set; }
-        public DbSet<Town> Towns { get; set; }
-        public DbSet<Vehicle> Vehicles { get; set; }
-        public DbSet<Driver> Drivers { get; set; }
-        public DbSet<DriverProfile> DriverProfiles { get; set; }
-        public DbSet<Order> Orders { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserProfile> UserProfiles { get; set; }
+        public virtual DbSet<Town> Towns { get; set; }
+        public virtual DbSet<Vehicle> Vehicles { get; set; }
+        public virtual DbSet<Driver> Drivers { get; set; }
+        public virtual  DbSet<DriverProfile> DriverProfiles { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
 
     }
 }

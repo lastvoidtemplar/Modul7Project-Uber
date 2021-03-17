@@ -11,52 +11,53 @@ namespace Business
     public class DriverProfileBusiness
     {
         private UberContext uberContext;
+        public DriverProfileBusiness(UberContext uberContext)
+        {
+            this.uberContext = uberContext;
+        }
+
+        public DriverProfileBusiness()
+        {
+            uberContext = new UberContext();
+        }
         public List<DriverProfile> GetAll()
         {
-            using (uberContext = new UberContext())
-            {
-                return uberContext.DriverProfiles.ToList();
-            }
+
+            return uberContext.DriverProfiles.ToList();
+
         }
         public DriverProfile Get(int id)
         {
-            using (uberContext = new UberContext())
-            {
-                return uberContext.DriverProfiles.Find(id);
-            }
+
+            return uberContext.DriverProfiles.FirstOrDefault(m => m.Id == id);
+
 
         }
         public void Add(DriverProfile driverProfile)
         {
-            using (uberContext = new UberContext())
-            {
-                uberContext.DriverProfiles.Add(driverProfile);
-                uberContext.SaveChanges();
-            }
+
+            uberContext.DriverProfiles.Add(driverProfile);
+            uberContext.SaveChanges();
+
         }
         public void Update(DriverProfile driverProfile)
         {
-            using (uberContext = new UberContext())
+
+            var item = uberContext.DriverProfiles.FirstOrDefault(m => m.Id == driverProfile.Id);
+            if (item != null)
             {
-                var item = uberContext.DriverProfiles.Find(driverProfile.Id);
-                if (item != null)
-                {
-                    uberContext.Entry(item).CurrentValues.SetValues(driverProfile);
-                    uberContext.SaveChanges();
-                }
+                uberContext.Entry(item).CurrentValues.SetValues(driverProfile);
+                uberContext.SaveChanges();
             }
+
         }
         public void Delete(int id)
         {
-
-            using (uberContext = new UberContext())
+            var item = uberContext.DriverProfiles.Find(id);
+            if (item != null)
             {
-                var item = uberContext.DriverProfiles.Find(id);
-                if (item != null)
-                {
-                    uberContext.DriverProfiles.Remove(item);
-                    uberContext.SaveChanges();
-                }
+                uberContext.DriverProfiles.Remove(item);
+                uberContext.SaveChanges();
             }
         }
     }

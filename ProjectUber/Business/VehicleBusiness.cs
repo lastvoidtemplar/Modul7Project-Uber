@@ -11,52 +11,46 @@ namespace Business
     public class VehicleBusiness
     {
         private UberContext uberContext;
+
+        public VehicleBusiness(UberContext uberContext)
+        {
+            this.uberContext = uberContext;
+        }
+
+        public VehicleBusiness()
+        {
+            uberContext = new UberContext();
+        }
+
         public List<Vehicle> GetAll()
         {
-            using (uberContext = new UberContext())
-            {
-                return uberContext.Vehicles.ToList();
-            }
+            return uberContext.Vehicles.ToList();
         }
         public Vehicle Get(int id)
         {
-            using (uberContext = new UberContext())
-            {
-                return uberContext.Vehicles.Find(id);
-            }
-
+            return uberContext.Vehicles.FirstOrDefault(m => m.Id == id);
         }
         public void Add(Vehicle vehicle)
         {
-            using (uberContext = new UberContext())
-            {
-                uberContext.Vehicles.Add(vehicle);
-                uberContext.SaveChanges();
-            }
+            uberContext.Vehicles.Add(vehicle);
+            uberContext.SaveChanges();
         }
         public void Update(Vehicle vehicle)
         {
-            using (uberContext = new UberContext())
+            var item = uberContext.Vehicles.FirstOrDefault(m => m.Id == vehicle.Id);
+            if (item != null)
             {
-                var item = uberContext.Vehicles.Find(vehicle.Id);
-                if (item != null)
-                {
-                    uberContext.Entry(item).CurrentValues.SetValues(vehicle);
-                    uberContext.SaveChanges();
-                }
+                uberContext.Entry(item).CurrentValues.SetValues(vehicle);
+                uberContext.SaveChanges();
             }
         }
         public void Delete(int id)
         {
-
-            using (uberContext = new UberContext())
+            var item = uberContext.Vehicles.Find(id);
+            if (item != null)
             {
-                var item = uberContext.Vehicles.Find(id);
-                if (item != null)
-                {
-                    uberContext.Vehicles.Remove(item);
-                    uberContext.SaveChanges();
-                }
+                uberContext.Vehicles.Remove(item);
+                uberContext.SaveChanges();
             }
         }
     }
