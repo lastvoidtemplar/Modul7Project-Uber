@@ -11,52 +11,44 @@ namespace Business
     public class TownBusiness
     {
         private UberContext uberContext;
+        public TownBusiness(UberContext uberContext)
+        {
+            this.uberContext = uberContext;
+        }
+
+        public TownBusiness()
+        {
+            uberContext = new UberContext();
+        }
         public List<Town> GetAll()
         {
-            using (uberContext = new UberContext())
-            {
-                return uberContext.Towns.ToList();
-            }
+            return uberContext.Towns.ToList();
         }
         public Town Get(int id)
         {
-            using (uberContext = new UberContext())
-            {
-                return uberContext.Towns.Find(id);
-            }
-
+            return uberContext.Towns.FirstOrDefault(m => m.Id == id);
         }
         public void Add(Town town)
         {
-            using(uberContext = new UberContext())
-            {
-                uberContext.Towns.Add(town);
-                uberContext.SaveChanges();
-            }
+            uberContext.Towns.Add(town);
+            uberContext.SaveChanges();
         }
         public void Update(Town town)
         {
-            using (uberContext = new UberContext())
+            var item = uberContext.Towns.FirstOrDefault(m => m.Id == town.Id);
+            if (item != null)
             {
-                var item = uberContext.Towns.Find(town.Id);
-                if (item != null)
-                {
-                    uberContext.Entry(item).CurrentValues.SetValues(town);
-                    uberContext.SaveChanges();
-                }
+                uberContext.Entry(item).CurrentValues.SetValues(town);
+                uberContext.SaveChanges();
             }
         }
         public void Delete(int id)
         {
-
-            using (uberContext = new UberContext())
+            var item = uberContext.Towns.Find(id);
+            if (item != null)
             {
-                var item = uberContext.Towns.Find(id);
-                if (item != null)
-                {
-                    uberContext.Towns.Remove(item);
-                    uberContext.SaveChanges();
-                }
+                uberContext.Towns.Remove(item);
+                uberContext.SaveChanges();
             }
         }
     }

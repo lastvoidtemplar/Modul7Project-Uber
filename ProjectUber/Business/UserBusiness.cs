@@ -8,55 +8,48 @@ using System.Threading.Tasks;
 
 namespace Business
 {
-   public  class UserBusiness
+    public class UserBusiness
     {
         private UberContext uberContext;
+        public UserBusiness(UberContext uberContext)
+        {
+            this.uberContext = uberContext;
+        }
+
+        public UserBusiness()
+        {
+            uberContext = new UberContext();
+        }
         public List<User> GetAll()
         {
-            using (uberContext = new UberContext())
-            {
-                return uberContext.Users.ToList();
-            }
+            return uberContext.Users.ToList();
         }
         public User Get(int id)
         {
-            using (uberContext = new UberContext())
-            {
-                return uberContext.Users.Find(id);
-            }
-
+            return uberContext.Users.FirstOrDefault(m => m.Id == id);
         }
         public void Add(User user)
         {
-            using (uberContext = new UberContext())
-            {
-                uberContext.Users.Add(user);
-                uberContext.SaveChanges();
-            }
+            uberContext.Users.Add(user);
+            uberContext.SaveChanges();
         }
         public void Update(User user)
         {
-            using (uberContext = new UberContext())
+            var item = uberContext.Users.FirstOrDefault(m => m.Id == user.Id);
+            if (item != null)
             {
-                var item = uberContext.Users.Find(user.Id);
-                if (item != null)
-                {
-                    uberContext.Entry(item).CurrentValues.SetValues(user);
-                    uberContext.SaveChanges();
-                }
+                uberContext.Entry(item).CurrentValues.SetValues(user);
+                uberContext.SaveChanges();
             }
+
         }
         public void Delete(int id)
         {
-
-            using (uberContext = new UberContext())
+            var item = uberContext.Users.Find(id);
+            if (item != null)
             {
-                var item = uberContext.Users.Find(id);
-                if (item != null)
-                {
-                    uberContext.Users.Remove(item);
-                    uberContext.SaveChanges();
-                }
+                uberContext.Users.Remove(item);
+                uberContext.SaveChanges();
             }
         }
     }

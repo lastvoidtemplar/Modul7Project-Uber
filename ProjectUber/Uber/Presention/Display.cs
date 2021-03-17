@@ -17,7 +17,7 @@ namespace Uber.Presention
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
-            Console.WriteLine(new string(' ', 18) + "MENU" + new string(' ', 18));
+            Console.WriteLine(new string(' ', 15) + "MAIN MENU" + new string(' ', 18));
             Console.WriteLine(new string('-', 40));
             Console.WriteLine("1. Towns");
             Console.WriteLine("2. Users");
