@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace UberTests
 {
-    public class UsersTest
+    public class UsersTests
     {
         [SetUp]
         public void Setup()
