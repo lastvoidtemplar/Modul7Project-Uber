@@ -56,8 +56,9 @@ namespace UberAppForm
         {
             DriverForm driverForm = new DriverForm();
             driverForm.main = this;
-            driverForm.Show();
-            this.Hide();
+            if (driverForm.succLoad == true) { driverForm.Show(); this.Hide(); }
+            else driverForm.Close();
+           
         }
 
         private void OpenDriverProfileForm_Click(object sender, EventArgs e)
