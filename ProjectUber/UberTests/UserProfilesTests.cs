@@ -133,7 +133,7 @@ namespace UberTests
         {
             var data = new List<UserProfile>()
             {
-               new UserProfile {Id =1, Username="Item1" },
+                new UserProfile {Id =1, Username="Item1" },
                 new UserProfile {Id =2, Username="Item2" },
                 new UserProfile {Id =3, Username="Item3" },
             }.AsQueryable();
