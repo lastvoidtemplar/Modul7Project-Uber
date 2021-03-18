@@ -12,6 +12,11 @@ namespace UberTests
 {
     public class DriversTests
     {
+        [SetUp]
+        public void Setup()
+        {
+        }
+
         [TestCase]
         public void GetAllTest()
         {
