@@ -79,6 +79,7 @@
     <Compile Include="TownsTests.cs" />
     <Compile Include="UserProfilesTests.cs" />
     <Compile Include="UsersTests.cs" />
+    <Compile Include="VehiclesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
