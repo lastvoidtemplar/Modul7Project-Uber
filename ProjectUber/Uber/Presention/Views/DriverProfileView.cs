@@ -11,6 +11,7 @@ namespace Uber.Presention.Views
     public class DriverProfileView
     {
         private DriverProfileBusiness driverProfileBusiness = new DriverProfileBusiness();
+        private DriverBusiness driverBusiness = new DriverBusiness();
 
         public DriverProfileView()
         {
@@ -31,23 +32,31 @@ namespace Uber.Presention.Views
         }
         private void Input()
         {
-
-            int command = 0;
-            int closedCommandId = 6;
-            do
+            if (driverBusiness.GetAll().Count == 0) 
             {
-                ShowMenu();
-                command = int.Parse(Console.ReadLine());
-                switch (command)
+                Console.WriteLine();
+                Console.WriteLine("Table Drivers is empty! Enter driver first.");
+                Console.WriteLine();
+            }
+            else
+            {
+                int command = 0;
+                int closedCommandId = 6;
+                do
                 {
-                    case 1: ListAll(); break;
-                    case 2: Add(); break;
-                    case 3: Update(); break;
-                    case 4: Fetch(); break;
-                    case 5: Delete(); break;
-                    default: break;
-                }
-            } while (command != closedCommandId);
+                    ShowMenu();
+                    command = int.Parse(Console.ReadLine());
+                    switch (command)
+                    {
+                        case 1: ListAll(); break;
+                        case 2: Add(); break;
+                        case 3: Update(); break;
+                        case 4: Fetch(); break;
+                        case 5: Delete(); break;
+                        default: break;
+                    }
+                } while (command != closedCommandId);
+            }
         }
         private void Add()
         {

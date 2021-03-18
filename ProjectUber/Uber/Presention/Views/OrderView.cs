@@ -12,6 +12,9 @@ namespace Uber.Presention.Views
     public class OrderView
     {
         private OrderBusiness orderBusiness = new OrderBusiness();
+        private DriverProfileBusiness driverProfileBusiness = new DriverProfileBusiness();
+        private UserProfileBusiness userProfileBusiness = new UserProfileBusiness();
+        private TownBusiness townBusiness = new TownBusiness();
 
         public OrderView()
         {
@@ -32,23 +35,43 @@ namespace Uber.Presention.Views
         }
         private void Input()
         {
-
-            int command = 0;
-            int closedCommandId = 6;
-            do
+            if (userProfileBusiness.GetAll().Count == 0)
             {
-                ShowMenu();
-                command = int.Parse(Console.ReadLine());
-                switch (command)
+                Console.WriteLine();
+                Console.WriteLine("Table UserProfiles is empty! Enter userProfile first.");
+                Console.WriteLine();
+            }
+            else if (driverProfileBusiness.GetAll().Count == 0)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Table DriverProfiles is empty! Enter driverProfile first.");
+                Console.WriteLine();
+            }
+            else if (townBusiness.GetAll().Count == 0)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Table Towns is empty! Enter town first.");
+                Console.WriteLine();
+            }
+            else
+            {
+                int command = 0;
+                int closedCommandId = 6;
+                do
                 {
-                    case 1: ListAll(); break;
-                    case 2: Add(); break;
-                    case 3: Update(); break;
-                    case 4: Fetch(); break;
-                    case 5: Delete(); break;
-                    default: break;
-                }
-            } while (command != closedCommandId);
+                    ShowMenu();
+                    command = int.Parse(Console.ReadLine());
+                    switch (command)
+                    {
+                        case 1: ListAll(); break;
+                        case 2: Add(); break;
+                        case 3: Update(); break;
+                        case 4: Fetch(); break;
+                        case 5: Delete(); break;
+                        default: break;
+                    }
+                } while (command != closedCommandId);
+            }
         }
         private void Add()
         {
