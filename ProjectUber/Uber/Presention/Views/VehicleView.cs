@@ -64,12 +64,10 @@ namespace Uber.Presention.Views
             Console.WriteLine(new string(' ', 16) + "VEHICLES" + new string(' ', 16));
             Console.WriteLine(new string('-', 40));
             List<Vehicle> vehicles = vehicleBusiness.GetAll();
+            Console.WriteLine("Id || Model || HorsePowers");
             foreach(Vehicle vehicle in vehicles)
             {
-                Console.WriteLine(new string('-', 40));
-                Console.WriteLine("Id: " + vehicle.Id);
-                Console.WriteLine("Model: " + vehicle.Model);
-                Console.WriteLine("HorsePowers: " + vehicle.HorsePower);                
+                Console.WriteLine($"{vehicle.Id} || {vehicle.Model} || {vehicle.HorsePower}");               
             }
             Console.WriteLine(new string('-', 40));
         }

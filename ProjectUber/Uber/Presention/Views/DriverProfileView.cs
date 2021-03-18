@@ -66,13 +66,10 @@ namespace Uber.Presention.Views
             Console.WriteLine(new string(' ', 8) + "DRIVER PROFILES" + new string(' ', 16));
             Console.WriteLine(new string('-', 40));
             List<DriverProfile> driverProfiles = driverProfileBusiness.GetAll();
+            Console.WriteLine("Id || Username || Password || DriverId");
             foreach(DriverProfile driverProfile in driverProfiles)
             {
-                Console.WriteLine(new string('-', 40));
-                Console.WriteLine("Id: " + driverProfile.Id);
-                Console.WriteLine("Username: " + driverProfile.Username);
-                Console.WriteLine("Password: " + driverProfile.Password);
-                Console.WriteLine(driverProfile.Driver);                
+                Console.WriteLine($"{driverProfile.Id} || {driverProfile.Username} || {driverProfile.Password} || {driverProfile.Driver}");                
             }
             Console.WriteLine(new string('-', 40));
         }

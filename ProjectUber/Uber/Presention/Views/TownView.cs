@@ -66,14 +66,10 @@ namespace Uber.Presention.Views
             Console.WriteLine(new string(' ', 18) + "Towns" + new string(' ', 17));
             Console.WriteLine(new string('-', 40));
             List<Town> towns = townBusiness.GetAll();
+            Console.WriteLine("Id || Name || Country || Zipcode");
             foreach (Town town in towns)
             {
-                Console.WriteLine(new string('-', 40));
-                Console.WriteLine("Id: " + town.Id);
-                Console.WriteLine("Name: " + town.Name);
-                Console.WriteLine("Country: " + town.Country);
-                Console.WriteLine("Zipcode: " + town.ZipCode);
-                Console.WriteLine(new string('-', 40));
+                Console.WriteLine($"{town.Id} || {town.Name} || {town.Country} || {town.ZipCode}");
             }
             Console.WriteLine(new string('-', 40));
         }

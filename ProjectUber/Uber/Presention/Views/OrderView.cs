@@ -21,7 +21,7 @@ namespace Uber.Presention.Views
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
-            Console.WriteLine(new string(' ', 14) + "Vehicle MENU" + new string(' ', 18));
+            Console.WriteLine(new string(' ', 14) + "Order MENU" + new string(' ', 18));
             Console.WriteLine(new string('-', 40));
             Console.WriteLine("1. List all orders");
             Console.WriteLine("2. Add new order");
@@ -69,18 +69,13 @@ namespace Uber.Presention.Views
         private void ListAll()
         {
             Console.WriteLine(new string('-', 40));
-            Console.WriteLine(new string(' ', 16) + "VEHICLES" + new string(' ', 16));
+            Console.WriteLine(new string(' ', 17) + "ORDERS" + new string(' ', 16));
             Console.WriteLine(new string('-', 40));
             List<Order> orders = orderBusiness.GetAll();
+            Console.WriteLine("Id || Date || Price || UserProfileId || DriverProfileId || TownId");
             foreach (Order order in orders)
             {
-                Console.WriteLine(new string('-', 40));
-                Console.WriteLine("Id: " + order.Id);
-                Console.WriteLine("Date: " + order.Date);
-                Console.WriteLine("Price: " + order.Price);
-                Console.WriteLine(order.UserProfile);
-                Console.WriteLine(order.DriverProfile);
-                Console.WriteLine(order.Town);
+                Console.WriteLine($"{order.Id} || {order.Date} || {order.Price} || {order.UserProfileId} || {order.DriverProfileId} || {order.TownId}");
             }
             Console.WriteLine(new string('-', 40));
         }
