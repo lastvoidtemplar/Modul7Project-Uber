@@ -22,16 +22,28 @@ namespace UberAppForm.Forms
         public DriverProfileForm()
         {
             InitializeComponent();
+            if (driverBusiness.GetAll().Count != 0)
+            {
+                selectedDriver = driverBusiness.GetAll().First().Id;                
+            }
+            else DriverTableEmptyMessage();           
         }
-
+        private void DriverTableEmptyMessage()
+        {
+            string message = "Table Drivers is empty! Enter driver first.";
+                DialogResult result = MessageBox.Show(message);
+                if (result == System.Windows.Forms.DialogResult.OK)
+                {
+                    succLoad = false;
+                }
+        }
         public MainForm main;
-
+        public bool succLoad = true;
         private void DriverProfileForm_Load(object sender, EventArgs e)
         {
             UpdateGrid();
             UpdateDriverGrid();
             ClearTextBoxes();
-            if (driverBusiness.GetAll().Count != 0) selectedDriver = driverBusiness.GetAll().First().Id;
         }
 
         private void UpdateGrid()

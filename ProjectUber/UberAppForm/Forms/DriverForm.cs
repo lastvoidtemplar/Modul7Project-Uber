@@ -22,18 +22,18 @@ namespace UberAppForm.Forms
         public DriverForm()
         {
             InitializeComponent();
-            if (vehicleBusiness.GetAll().Count != 0)  selectedVehicle = vehicleBusiness.GetAll().First().Id;
-            else
+            if (vehicleBusiness.GetAll().Count != 0) selectedVehicle = vehicleBusiness.GetAll().First().Id;
+            else TownTableEmptyMessage();
+        }
+        private void TownTableEmptyMessage()
+        {
+            string message = "Table Vehecles is empty! Enter vehicle first.";
+            DialogResult result = MessageBox.Show(message);
+            if (result == System.Windows.Forms.DialogResult.OK)
             {
-                string message = "Table Vehecles is empty! Enter vehicle first.";
-                DialogResult result = MessageBox.Show(message);
-                if(result== System.Windows.Forms.DialogResult.OK)
-                {
-                    succLoad = false;
-                }
+                succLoad = false;
             }
         }
-
         public MainForm main;
         public bool succLoad = true;
         private void DriverForm_Load(object sender, EventArgs e)

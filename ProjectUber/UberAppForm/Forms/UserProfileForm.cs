@@ -21,16 +21,25 @@ namespace UberAppForm.Forms
         public UserProfileForm()
         {
             InitializeComponent();
+            if (userBusiness.GetAll().Count != 0) selectedUser = userBusiness.GetAll().First().Id;
+            else UsersTableEmptyMessage();
         }
-
+        private void UsersTableEmptyMessage()
+        {
+            string message = "Table Users is empty! Enter user first.";
+            DialogResult result = MessageBox.Show(message);
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                succLoad = false;
+            }
+        }
         public MainForm main;
-
+        public bool succLoad = true;
         private void UserProfileForm_Load(object sender, EventArgs e)
         {
             UpdateGrid();
             UpdateUserGrid();
-            ClearTextBoxes();
-            if(userBusiness.GetAll().Count!=0) selectedUser = userBusiness.GetAll().FirstOrDefault().Id;
+            ClearTextBoxes();          
         }
 
         private void UpdateGrid()

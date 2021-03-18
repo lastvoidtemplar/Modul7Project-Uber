@@ -25,8 +25,50 @@ namespace UberAppForm.Forms
         public OrderForm()
         {
             InitializeComponent();
+            if (userProfileBusiness.GetAll().Count != 0)
+            {
+                selectedUser = userProfileBusiness.GetAll().First().Id;
+                if (driverProfileBusiness.GetAll().Count != 0)
+                {
+                    selectedDriver = driverProfileBusiness.GetAll().First().Id;
+                    if (townBusiness.GetAll().Count != 0) selectedTown = townBusiness.GetAll().First().Id;
+                    else TownTableEmptyMessage();
+                }
+                else DriverProfilesTableEmptyMessage();
+            }
+            else UserProfilesTableEmptyMessage();
+
+
+        }
+        private void UserProfilesTableEmptyMessage()
+        {
+            string message = "Table UserProfiles is empty! Enter userProfile first.";
+            DialogResult result = MessageBox.Show(message);
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                succLoad = false;
+            }
+        }
+        private void DriverProfilesTableEmptyMessage()
+        {
+            string message = "Table DriverProfiles is empty! Enter driverProfile first.";
+            DialogResult result = MessageBox.Show(message);
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                succLoad = false;
+            }
+        }
+        private void TownTableEmptyMessage()
+        {
+            string message = "Table Towns is empty! Enter town first.";
+            DialogResult result = MessageBox.Show(message);
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                succLoad = false;
+            }
         }
         public MainForm main;
+        public bool succLoad = true;
         private void OrderForm_Load(object sender, EventArgs e)
         {
             UpdateGrid();
@@ -34,9 +76,6 @@ namespace UberAppForm.Forms
             UpdateDriverProfileGrid();
             UpdateTownGrid();
             ClearTextBoxes();
-            if (userProfileBusiness.GetAll().Count != 0) selectedUser = userProfileBusiness.GetAll().FirstOrDefault().Id; ;
-            if (driverProfileBusiness.GetAll().Count != 0) selectedDriver = driverProfileBusiness.GetAll().FirstOrDefault().Id; ;
-            if (townBusiness.GetAll().Count != 0) selectedTown = townBusiness.GetAll().FirstOrDefault().Id;
         }
         private void UpdateGrid()
         {
@@ -105,8 +144,8 @@ namespace UberAppForm.Forms
         private void InsertButton_Click(object sender, EventArgs e)
         {
             int[] dateArray = DateTextBox.Text.Split().Select(int.Parse).ToArray(); ;
-            DateTime date = new DateTime(dateArray[2], dateArray[1],dateArray[0]);
-            decimal price= 0;
+            DateTime date = new DateTime(dateArray[2], dateArray[1], dateArray[0]);
+            decimal price = 0;
             decimal.TryParse(PriceTextBox.Text, out price);
             int userProfile_id = GetIdOfSelectedUserProfile();
             int driverProfile_id = GetIdOfSelectedDriverProfile();
@@ -125,7 +164,7 @@ namespace UberAppForm.Forms
         {
             Order order = orderBusiness.Get(id);
             DateTime date = order.Date;
-            DateTextBox.Text =$"{date.Day} {date.Month} {date.Year}" ;
+            DateTextBox.Text = $"{date.Day} {date.Month} {date.Year}";
             PriceTextBox.Text = order.Price.ToString();
             userDataGridView.ClearSelection();
             driverDataGridView.ClearSelection();
