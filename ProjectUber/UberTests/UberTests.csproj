@@ -77,9 +77,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TownsTests.cs" />
+    <Compile Include="DriversTests.cs" />
+    <Compile Include="DriverProfilesTests.cs" />
+    <Compile Include="VehiclesTests.cs" />
     <Compile Include="UserProfilesTests.cs" />
     <Compile Include="UsersTests.cs" />
-    <Compile Include="VehiclesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
