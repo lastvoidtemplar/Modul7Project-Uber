@@ -14,8 +14,6 @@ namespace UberTests
 {
     public class OrdersTests
     {
-        public class TownsTests
-        {
             [SetUp]
             public void Setup()
             {
@@ -163,4 +161,3 @@ namespace UberTests
             }
         }
     }
-}
