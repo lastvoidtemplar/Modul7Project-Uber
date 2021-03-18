@@ -10,7 +10,8 @@ namespace Uber.Presention.Views
 {
     public  class UserProfileView
     {
-        private UserProfileBusiness userBusiness = new UserProfileBusiness();
+        private UserProfileBusiness userProfileBusiness = new UserProfileBusiness();
+        private UserBusiness userBusiness = new UserBusiness();
 
         public UserProfileView()
         {
@@ -31,23 +32,31 @@ namespace Uber.Presention.Views
         }
         private void Input()
         {
-
-            int command = 0;
-            int closedCommandId = 6;
-            do
+            if (userBusiness.GetAll().Count == 0)
             {
-                ShowMenu();
-                command = int.Parse(Console.ReadLine());
-                switch (command)
+                Console.WriteLine();
+                Console.WriteLine("Table Users is empty! Enter user first.");
+                Console.WriteLine();
+            }
+            else
+            {
+                int command = 0;
+                int closedCommandId = 6;
+                do
                 {
-                    case 1: ListAll(); break;
-                    case 2: Add(); break;
-                    case 3: Update(); break;
-                    case 4: Fetch(); break;
-                    case 5: Delete(); break;
-                    default: break;
-                }
-            } while (command != closedCommandId);
+                    ShowMenu();
+                    command = int.Parse(Console.ReadLine());
+                    switch (command)
+                    {
+                        case 1: ListAll(); break;
+                        case 2: Add(); break;
+                        case 3: Update(); break;
+                        case 4: Fetch(); break;
+                        case 5: Delete(); break;
+                        default: break;
+                    }
+                } while (command != closedCommandId);
+            }
         }
         private void Add()
         {
@@ -58,14 +67,14 @@ namespace Uber.Presention.Views
             userProfile.Password = Encrypt(Console.ReadLine());
             Console.WriteLine("Enter user id: ");
             userProfile.UserId = int.Parse(Console.ReadLine());          
-            userBusiness.Add(userProfile);
+            userProfileBusiness.Add(userProfile);
         }
         private void ListAll()
         {
             Console.WriteLine(new string('-', 40));
             Console.WriteLine(new string(' ', 14) + "UserProfiles" + new string(' ', 14));
             Console.WriteLine(new string('-', 40));
-            List<UserProfile> usersProfiles =userBusiness.GetAll();
+            List<UserProfile> usersProfiles =userProfileBusiness.GetAll();
             Console.WriteLine("Id || Username || Password || UserProfileId");
             foreach (UserProfile userProfile in usersProfiles)
             {
@@ -77,7 +86,7 @@ namespace Uber.Presention.Views
         {
             Console.WriteLine("Enter ID to update: ");
             int id = int.Parse(Console.ReadLine());
-            UserProfile userProfile = userBusiness.Get(id);
+            UserProfile userProfile = userProfileBusiness.Get(id);
             if (userProfile != null)
             {
                 Console.WriteLine("Enter  username: ");
@@ -86,7 +95,7 @@ namespace Uber.Presention.Views
                 userProfile.Password = Encrypt(Console.ReadLine());
                 Console.WriteLine("Enter user id: ");
                 userProfile.UserId = int.Parse(Console.ReadLine());
-                userBusiness.Update(userProfile);
+                userProfileBusiness.Update(userProfile);
             }
             else
             {
@@ -97,7 +106,7 @@ namespace Uber.Presention.Views
         {
             Console.WriteLine("Enter ID to fetch: ");
             int id = int.Parse(Console.ReadLine());
-            UserProfile userProfile = userBusiness.Get(id);
+            UserProfile userProfile = userProfileBusiness.Get(id);
             if (userProfile != null)
             {
                 Console.WriteLine(new string('-', 40));
@@ -116,7 +125,7 @@ namespace Uber.Presention.Views
         {
             Console.WriteLine("Enter ID to delete: ");
             int id = int.Parse(Console.ReadLine());
-            userBusiness.Delete(id);
+            userProfileBusiness.Delete(id);
             Console.WriteLine("Done.");
         }
         private string Encrypt(string text)

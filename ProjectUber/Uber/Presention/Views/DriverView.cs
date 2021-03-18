@@ -11,7 +11,7 @@ namespace Uber.Presention.Views
     public class DriverView
     {
         private DriverBusiness driverBusiness = new DriverBusiness();
-        private VehicleBusiness VehicleBusiness = new VehicleBusiness();
+        private VehicleBusiness vehicleBusiness = new VehicleBusiness();
         public DriverView()
         {
             Input();
@@ -31,7 +31,12 @@ namespace Uber.Presention.Views
         }
         private void Input()
         {
-            if (VehicleBusiness.GetAll().Count == 0) { Console.WriteLine("Table Vehecles is empty! Enter vehicle first."); }
+            if (vehicleBusiness.GetAll().Count == 0) 
+            {
+                Console.WriteLine();
+                Console.WriteLine("Table Vehecles is empty! Enter vehicle first.");
+                Console.WriteLine();
+            }
             else
             {
                 int command = 0;
