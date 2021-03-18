@@ -66,14 +66,10 @@ namespace Uber.Presention.Views
             Console.WriteLine(new string(' ', 14) + "UserProfiles" + new string(' ', 14));
             Console.WriteLine(new string('-', 40));
             List<UserProfile> usersProfiles =userBusiness.GetAll();
+            Console.WriteLine("Id || Username || Password || UserProfileId");
             foreach (UserProfile userProfile in usersProfiles)
             {
-                Console.WriteLine(new string('-', 40));
-                Console.WriteLine("Id: " + userProfile.Id);
-                Console.WriteLine("Username: " + userProfile.Username);
-                Console.WriteLine("Password: " + userProfile.Password);
-                Console.WriteLine(userProfile.User);
-                Console.WriteLine(new string('-', 40));
+                Console.WriteLine($"{userProfile.Id} || {userProfile.Username} || {userProfile.Password} || {userProfile.UserId}");
             }
             Console.WriteLine(new string('-', 40));
         }

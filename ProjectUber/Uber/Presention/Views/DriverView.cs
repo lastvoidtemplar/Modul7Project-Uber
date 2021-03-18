@@ -75,16 +75,10 @@ namespace Uber.Presention.Views
             Console.WriteLine(new string(' ', 16) + "DRIVERS" + new string(' ', 16));
             Console.WriteLine(new string('-', 40));
             List<Driver> drivers = driverBusiness.GetAll();
+            Console.WriteLine("Id || First name || Last name || Age || Orders count || Rating || VehicleId");
             foreach(Driver driver in drivers)
             {
-                Console.WriteLine(new string('-', 40));
-                Console.WriteLine("Id: " + driver.Id);
-                Console.WriteLine("First name: " + driver.FirstName);
-                Console.WriteLine("Last name: " + driver.LastName);
-                Console.WriteLine("Age: " + driver.Age);
-                Console.WriteLine("Orders count: " + driver.CountOrders);
-                Console.WriteLine("Rating: " + driver.Rating);
-                Console.WriteLine(driver.Vehicle);               
+                Console.WriteLine($"{driver.Id} || {driver.FirstName} || {driver.LastName} || {driver.Age} || {driver.CountOrders} || {driver.Rating} || {driver.VehicleId}");               
             }
             Console.WriteLine(new string('-', 40));
         }
