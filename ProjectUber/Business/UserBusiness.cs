@@ -14,6 +14,7 @@ namespace Business
     public class UserBusiness
     {
         private UberContext uberContext;
+
         /// <summary>
         /// Constructer used in tests
         /// </summary>
@@ -21,6 +22,7 @@ namespace Business
         {
             this.uberContext = uberContext;
         }
+
         /// <summary>
         /// Constructor used in Presentation layer
         /// </summary>
@@ -28,6 +30,7 @@ namespace Business
         {
             uberContext = new UberContext();
         }
+
         /// <summary>
         /// Gets all users from the table Users
         /// </summary>
@@ -36,6 +39,7 @@ namespace Business
         {
             return uberContext.Users.ToList();
         }
+
         /// <summary>
         /// Gets an user with a given id from the table Users
         /// </summary>
@@ -45,6 +49,7 @@ namespace Business
         {
             return uberContext.Users.FirstOrDefault(m => m.Id == id);
         }
+
         /// <summary>
         /// Adds an user to the table Users
         /// </summary>
@@ -54,6 +59,7 @@ namespace Business
             uberContext.Users.Add(user);
             uberContext.SaveChanges();
         }
+
         /// <summary>
         /// Updates the changes for a given user from the table Users
         /// </summary>
@@ -68,6 +74,7 @@ namespace Business
             }
 
         }
+
         /// <summary>
         /// Deletes an user with a given id from the table Users
         /// </summary>

@@ -14,6 +14,7 @@ namespace Business
     public class TownBusiness
     {
         private UberContext uberContext;
+
         /// <summary>
         /// Constructer used in tests
         /// </summary>
@@ -21,6 +22,7 @@ namespace Business
         {
             this.uberContext = uberContext;
         }
+
         /// <summary>
         /// Constructor used in Presentation layer
         /// </summary>
@@ -28,6 +30,7 @@ namespace Business
         {
             uberContext = new UberContext();
         }
+
         /// <summary>
         /// Gets all towns from the table Towns
         /// </summary>
@@ -36,6 +39,7 @@ namespace Business
         {
             return uberContext.Towns.ToList();
         }
+
         /// <summary>
         /// Gets a town with a given id from the table Towns
         /// </summary>
@@ -45,6 +49,7 @@ namespace Business
         {
             return uberContext.Towns.FirstOrDefault(m => m.Id == id);
         }
+
         /// <summary>
         /// Adds a town to the table Towns
         /// </summary>
@@ -54,6 +59,7 @@ namespace Business
             uberContext.Towns.Add(town);
             uberContext.SaveChanges();
         }
+
         /// <summary>
         /// Updates the changes to a given town from the table Towns
         /// </summary>
@@ -67,6 +73,7 @@ namespace Business
                 uberContext.SaveChanges();
             }
         }
+
         /// <summary>
         /// Deletes a town with a given id from the table Towns
         /// </summary>

@@ -12,11 +12,17 @@ namespace Uber.Presention.Views
     {
         private VehicleBusiness vehicleBusiness = new VehicleBusiness();
 
+        /// <summary>
+        /// Constructor used by the display.
+        /// </summary>
         public VehicleView()
         {
             Input();
         }
 
+        /// <summary>
+        /// Shows all the commands that the user can use.
+        /// </summary>
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
@@ -29,6 +35,10 @@ namespace Uber.Presention.Views
             Console.WriteLine("5. Delete vehicle by ID");
             Console.WriteLine("6. Back to MAIN MENU");
         }
+
+        /// <summary>
+        /// Converts the input and does the selected command.
+        /// </summary>
         private void Input()
         {
 
@@ -49,6 +59,10 @@ namespace Uber.Presention.Views
                 }
             } while (command != closedCommandId);
         }
+
+        /// <summary>
+        /// Aks the user for vehicle parameters and creates a vehicle with those parameters, after that adds that vehicle to the table Towns.
+        /// </summary>
         private void Add()
         {
             Vehicle vehicle = new Vehicle();
@@ -58,6 +72,10 @@ namespace Uber.Presention.Views
             vehicle.HorsePower = int.Parse(Console.ReadLine());
             vehicleBusiness.Add(vehicle);
         }
+
+        /// <summary>
+        /// Lists all vehicles from the table Vehicles.
+        /// </summary>
         private void ListAll()
         {
             Console.WriteLine(new string('-', 40));
@@ -71,6 +89,10 @@ namespace Uber.Presention.Views
             }
             Console.WriteLine(new string('-', 40));
         }
+
+        /// <summary>
+        /// Aks the user for id, after that gets the vehicle with that id and asks for changes.
+        /// </summary>
         private void Update()
         {
             Console.WriteLine("Enter ID to update: ");
@@ -89,6 +111,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("Vehicale not found!");
             }
         }
+
+        /// <summary>
+        /// Asks the user for id, after that lists the vehicle with that id.
+        /// </summary>
         private void Fetch()
         {
             Console.WriteLine("Enter ID to fetch: ");
@@ -107,6 +133,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("Vehicle not found!");
             }
         }
+
+        /// <summary>
+        /// Aks the user for id, after that deletes the vehicle with that id.
+        /// </summary>
         private void Delete()
         {
             Console.WriteLine("Enter ID to delete: ");

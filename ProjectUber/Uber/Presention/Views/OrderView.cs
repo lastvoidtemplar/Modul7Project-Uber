@@ -16,11 +16,17 @@ namespace Uber.Presention.Views
         private UserProfileBusiness userProfileBusiness = new UserProfileBusiness();
         private TownBusiness townBusiness = new TownBusiness();
 
+        /// <summary>
+        /// Constructor used by the display.
+        /// </summary>
         public OrderView()
         {
             Input();
         }
 
+        /// <summary>
+        /// Shows all the commands that the user can use.
+        /// </summary>
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
@@ -33,6 +39,10 @@ namespace Uber.Presention.Views
             Console.WriteLine("5. Delete order by ID");
             Console.WriteLine("6. Back to MAIN MENU");
         }
+
+        /// <summary>
+        /// Converts the input and does the selected command. Also checks if tables UserProfiles, DriverProfiles and Towns is empty.
+        /// </summary>
         private void Input()
         {
             if (userProfileBusiness.GetAll().Count == 0)
@@ -73,6 +83,10 @@ namespace Uber.Presention.Views
                 } while (command != closedCommandId);
             }
         }
+
+        /// <summary>
+        /// Aks the user for order parameters and creates an order with those parameters, after that adds that order to the table Orders.
+        /// </summary>
         private void Add()
         {
             Order order = new Order();
@@ -89,6 +103,10 @@ namespace Uber.Presention.Views
             order.TownId = int.Parse(Console.ReadLine());
             orderBusiness.Add(order);
         }
+
+        /// <summary>
+        /// Lists all orders from the table Orders.
+        /// </summary>
         private void ListAll()
         {
             Console.WriteLine(new string('-', 40));
@@ -102,6 +120,10 @@ namespace Uber.Presention.Views
             }
             Console.WriteLine(new string('-', 40));
         }
+
+        /// <summary>
+        /// Aks the user for id, after that gets the order with that id and asks for changes.
+        /// </summary>
         private void Update()
         {
             Console.WriteLine("Enter ID to update: ");
@@ -127,6 +149,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("Order not found!");
             }
         }
+
+        /// <summary>
+        /// Asks the user for id, after that lists the order with that id.
+        /// </summary>
         private void Fetch()
         {
             Console.WriteLine("Enter ID to fetch: ");
@@ -148,6 +174,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("Order not found!");
             }
         }
+
+        /// <summary>
+        /// Aks the user for id, after that deletes the order with that id.
+        /// </summary>
         private void Delete()
         {
             Console.WriteLine("Enter ID to delete: ");

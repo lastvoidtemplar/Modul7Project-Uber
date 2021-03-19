@@ -14,6 +14,7 @@ namespace Business
     public class OrderBusiness
     {
         private UberContext uberContext;
+
         /// <summary>
         /// Constructer used in tests
         /// </summary>
@@ -21,6 +22,7 @@ namespace Business
         {
             this.uberContext = uberContext;
         }
+
         /// <summary>
         /// Constructor used in Presentation layer
         /// </summary>
@@ -28,6 +30,7 @@ namespace Business
         {
             uberContext = new UberContext();
         }
+
         /// <summary>
         /// Gets all orders from the table Orders
         /// </summary>
@@ -36,6 +39,7 @@ namespace Business
         {
             return uberContext.Orders.ToList();
         }
+
         /// <summary>
         /// Gets an order with a given id from the table Orders
         /// </summary>
@@ -45,6 +49,7 @@ namespace Business
         {
             return uberContext.Orders.FirstOrDefault(m => m.Id == id);
         }
+
         /// <summary>
         /// Adds an order to the table Orders
         /// </summary>
@@ -54,6 +59,7 @@ namespace Business
             uberContext.Orders.Add(order);
             uberContext.SaveChanges();
         }
+
         /// <summary>
         /// Updates the changes for a given order from the table Orders
         /// </summary>
@@ -67,6 +73,7 @@ namespace Business
                 uberContext.SaveChanges();
             }
         }
+
         /// <summary>
         /// Deletes an order with a given id from the table Orders
         /// </summary>

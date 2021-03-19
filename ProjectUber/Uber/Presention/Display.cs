@@ -9,11 +9,17 @@ namespace Uber.Presention
 {
     public class Display
     {
+        /// <summary>
+        /// Constructor for the display.
+        /// </summary>
         public Display()
         {
             Input();
         }
 
+        /// <summary>
+        /// Shows the user all the tables he can access.
+        /// </summary>
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
@@ -28,6 +34,10 @@ namespace Uber.Presention
             Console.WriteLine("7. Orders");
             Console.WriteLine("8. Exit");
         }
+
+        /// <summary>
+        /// Converts the input into the wanted table.
+        /// </summary>
         private void Input()
         {
 
@@ -50,30 +60,58 @@ namespace Uber.Presention
                 }
             } while (command != closedCommandId);
         }
+
+        /// <summary>
+        /// Creates a town view.
+        /// </summary>
         private void Towns()
         {
             TownView townView = new TownView();
         }
+
+        /// <summary>
+        /// Creates a user view.
+        /// </summary>
         private void Users()
         {
             UserView userView = new UserView();
         }
+
+        /// <summary>
+        /// Creates a userprofile view.
+        /// </summary>
         private void UserProflies()
         {
             UserProfileView userProfileView = new UserProfileView();
         }
+
+        /// <summary>
+        /// Creates a vehicle view.
+        /// </summary>
         private void Vehicles()
         {
             VehicleView vehicle = new VehicleView();
         }
+
+        /// <summary>
+        /// Creates a driver view.
+        /// </summary>
         private void Drivers()
         {
             DriverView driverView = new DriverView();
         }
+
+        /// <summary>
+        /// Creates a driverprofile view.
+        /// </summary>
         private void DriverProfiles()
         {
             DriverProfileView driverProfileView = new DriverProfileView();
         }
+
+        /// <summary>
+        /// Creates a order view.
+        /// </summary>
         private void Orders()
         {
             OrderView orderView = new OrderView();
