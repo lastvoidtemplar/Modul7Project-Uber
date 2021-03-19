@@ -20,19 +20,36 @@ namespace Business
         {
             uberContext = new UberContext();
         }
+        /// <summary>
+        /// Gets all users from the table Users
+        /// </summary>
+        /// <returns></returns>
         public List<User> GetAll()
         {
             return uberContext.Users.ToList();
         }
+        /// <summary>
+        /// Gets an user with a given id from the table Users
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public User Get(int id)
         {
             return uberContext.Users.FirstOrDefault(m => m.Id == id);
         }
+        /// <summary>
+        /// Adds an user to the table Users
+        /// </summary>
+        /// <param name="user"></param>
         public void Add(User user)
         {
             uberContext.Users.Add(user);
             uberContext.SaveChanges();
         }
+        /// <summary>
+        /// Updates the changes for a given user from the table Users
+        /// </summary>
+        /// <param name="user"></param>
         public void Update(User user)
         {
             var item = uberContext.Users.FirstOrDefault(m => m.Id == user.Id);
@@ -43,6 +60,10 @@ namespace Business
             }
 
         }
+        /// <summary>
+        /// Deletes an user with a given id from the table Users
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             var item = uberContext.Users.Find(id);

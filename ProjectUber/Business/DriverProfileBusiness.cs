@@ -20,12 +20,21 @@ namespace Business
         {
             uberContext = new UberContext();
         }
+        /// <summary>
+        /// Gets all driver profiles from the table DriverProfiles
+        /// </summary>
+        /// <returns></returns>
         public List<DriverProfile> GetAll()
         {
 
             return uberContext.DriverProfiles.ToList();
 
         }
+        /// <summary>
+        /// Gets a driver profile with a given id from the table DriverProfile
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public DriverProfile Get(int id)
         {
 
@@ -33,6 +42,10 @@ namespace Business
 
 
         }
+        /// <summary>
+        /// Adds a driver profile to the table DriverProfiles
+        /// </summary>
+        /// <param name="driverProfile"></param>
         public void Add(DriverProfile driverProfile)
         {
 
@@ -40,6 +53,10 @@ namespace Business
             uberContext.SaveChanges();
 
         }
+        /// <summary>
+        /// Updates the changes for a given driver profile from the table DriverProfile
+        /// </summary>
+        /// <param name="driverProfile"></param>
         public void Update(DriverProfile driverProfile)
         {
 
@@ -51,6 +68,10 @@ namespace Business
             }
 
         }
+        /// <summary>
+        /// Deletes a driver profile with a given id from the table DriverProfiles
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             var item = uberContext.DriverProfiles.Find(id);
