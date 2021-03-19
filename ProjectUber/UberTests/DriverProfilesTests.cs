@@ -16,7 +16,12 @@ namespace UberTests
         public void Setup()
         {
         }
-
+        /// <summary>
+        /// Creates Mockset which is connected to test list.
+        /// Creates MockContext whose Dbset is substituted with the Mockset.
+        /// Creates Business using MockContext.
+        /// Checks if elements of the test list are equal to elements of the returned list from the business.
+        /// </summary>
         [TestCase]
         public void GetAllTest()
         {
@@ -40,7 +45,12 @@ namespace UberTests
             Assert.AreEqual("Item2", DriverProfiles[1].Username);
             Assert.AreEqual("Item3", DriverProfiles[2].Username);
         }
-
+        /// <summary>
+        /// Creates Mockset which is connected to test list.
+        /// Creates MockContext whose Dbset is substituted with the Mockset.
+        /// Creates Business using MockContext.
+        /// Verifies if methods "Add" and "SaveChanges" were performed.
+        /// </summary>
         [TestCase]
         public void AddTest()
         {
@@ -63,7 +73,12 @@ namespace UberTests
             mockSet.Verify(m => m.Add(It.IsAny<DriverProfile>()), Times.Once());
             mockContext.Verify(m => m.SaveChanges(), Times.Once());
         }
-
+        /// <summary>
+        /// Creates Mockset which is connected to test list.
+        /// Creates MockContext whose Dbset is substituted with the Mockset.
+        /// Creates Business using MockContext.
+        /// Checks if the id of the returned driverProfile is equal to the given id.
+        /// </summary>
         [TestCase]
         public void GetTestWithExistingId()
         {
@@ -84,7 +99,12 @@ namespace UberTests
             var driverProfile = business.Get(1);
             Assert.AreEqual(1, driverProfile.Id);
         }
-
+        /// <summary>
+        /// Creates Mockset which is connected to test list.
+        /// Creates MockContext whose Dbset is substituted with the Mockset.
+        /// Creates Business using MockContext.
+        /// Checks if method "Get" will return null, if it is given non-existenting id.
+        /// </summary>
         [TestCase]
         public void GetTestWithOutExistingId()
         {
@@ -104,7 +124,12 @@ namespace UberTests
             var business = new DriverProfileBusiness(mockContext.Object);
             Assert.IsNull(business.Get(4));
         }
-
+        /// <summary>
+        /// Creates Mockset which isconnected to test list.
+        /// Creates MockContext whose Dbset is substituted with the Mockset.
+        /// Creates Business using MockContext.
+        /// Checks if driverProfile with deleted id still exist.
+        /// </summary>
         [TestCase]
         public void DeleteTestWithExistingId()
         {
@@ -126,7 +151,12 @@ namespace UberTests
             int deleteId = 1; business.Delete(driverProfiles[0].Id);
             Assert.IsNull(business.GetAll().FirstOrDefault(x => x.Id == deleteId));
         }
-
+        /// <summary>
+        /// Creates Mockset which is connected to test list.
+        /// Creates MockContext whose Dbset is substituted with the Mockset.
+        /// Creates Business using MockContext.
+        /// Checks if method "Delete" will throw exeption, if it is given non-existenting id.
+        /// </summary>
         [TestCase]
         public void DeleteTestWithOutExistingId()
         {
