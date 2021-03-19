@@ -10,6 +10,9 @@ namespace Data.Models
 {
    public class UserProfile
     {
+        /// <summary>
+        /// Primary Key
+        /// </summary>
         [Key]
         public int Id { get; set; }
         [Required]
@@ -20,8 +23,14 @@ namespace Data.Models
         [MinLength(6, ErrorMessage = "Password is too short!")]
         [MaxLength(50, ErrorMessage = "Password is too long!")]
         public string Password { get; set; }
+        /// <summary>
+        /// Foreign Key connected with table Users
+        /// </summary>
         [ForeignKey("User")]
         public int UserId { get; set; }
+        /// <summary>
+        /// Navigation property
+        /// </summary>
         public User User { get; set; }
         public override string ToString()
         {

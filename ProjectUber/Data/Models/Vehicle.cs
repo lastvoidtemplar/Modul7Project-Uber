@@ -10,6 +10,9 @@ namespace Data.Models
 {
     public class Vehicle
     {
+        /// <summary>
+        /// Primary Key
+        /// </summary>
         [Key]
         public int Id { get; set; }
         [Required]
