@@ -14,6 +14,7 @@ namespace Business
     public class DriverProfileBusiness
     {
         private UberContext uberContext;
+
         /// <summary>
         /// Constructer used in tests
         /// </summary>
@@ -21,6 +22,7 @@ namespace Business
         {
             this.uberContext = uberContext;
         }
+
         /// <summary>
         /// Constructor used in Presentation layer
         /// </summary>
@@ -28,6 +30,7 @@ namespace Business
         {
             uberContext = new UberContext();
         }
+
         /// <summary>
         /// Gets all driver profiles from the table DriverProfiles
         /// </summary>
@@ -38,6 +41,7 @@ namespace Business
             return uberContext.DriverProfiles.ToList();
 
         }
+
         /// <summary>
         /// Gets a driver profile with a given id from the table DriverProfile
         /// </summary>
@@ -50,6 +54,7 @@ namespace Business
 
 
         }
+
         /// <summary>
         /// Adds a driver profile to the table DriverProfiles
         /// </summary>
@@ -61,6 +66,7 @@ namespace Business
             uberContext.SaveChanges();
 
         }
+
         /// <summary>
         /// Updates the changes for a given driver profile from the table DriverProfile
         /// </summary>
@@ -76,6 +82,7 @@ namespace Business
             }
 
         }
+
         /// <summary>
         /// Deletes a driver profile with a given id from the table DriverProfiles
         /// </summary>

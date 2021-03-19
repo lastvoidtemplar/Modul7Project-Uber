@@ -14,6 +14,7 @@ namespace Business
     public class VehicleBusiness
     {
         private UberContext uberContext;
+
         /// <summary>
         /// Constructor used in tests
         /// </summary>
@@ -21,6 +22,7 @@ namespace Business
         {
             this.uberContext = uberContext;
         }
+
         /// <summary>
         /// Constructor used in Presentation layer
         /// </summary>
@@ -28,6 +30,7 @@ namespace Business
         {
             uberContext = new UberContext();
         }
+
         /// <summary>
         /// Gets all vehicles from the table Vehicles
         /// </summary>
@@ -36,6 +39,7 @@ namespace Business
         {
             return uberContext.Vehicles.ToList();
         }
+
         /// <summary>
         /// Gets a vehicle with a given id from the table Vehicles
         /// </summary>
@@ -45,6 +49,7 @@ namespace Business
         {
             return uberContext.Vehicles.FirstOrDefault(m => m.Id == id);
         }
+
         /// <summary>
         /// Adds a vehicle to the table Vehicles
         /// </summary>
@@ -54,6 +59,7 @@ namespace Business
             uberContext.Vehicles.Add(vehicle);
             uberContext.SaveChanges();
         }
+
         /// <summary>
         /// Updates the changes to a given vehicle from the table Vehicles
         /// </summary>
@@ -67,6 +73,7 @@ namespace Business
                 uberContext.SaveChanges();
             }
         }
+
         /// <summary>
         /// Deletes a vehicle with a given id from the table Vehicles
         /// </summary>
