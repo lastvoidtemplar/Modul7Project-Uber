@@ -8,14 +8,22 @@ using System.Threading.Tasks;
 
 namespace Business
 {
+    /// <summary>
+    /// Business logic of the table DriverProfiles
+    /// </summary>
     public class DriverProfileBusiness
     {
         private UberContext uberContext;
+        /// <summary>
+        /// Constructer used in tests
+        /// </summary>
         public DriverProfileBusiness(UberContext uberContext)
         {
             this.uberContext = uberContext;
         }
-
+        /// <summary>
+        /// Constructor used in Presentation layer
+        /// </summary>
         public DriverProfileBusiness()
         {
             uberContext = new UberContext();
@@ -23,7 +31,7 @@ namespace Business
         /// <summary>
         /// Gets all driver profiles from the table DriverProfiles
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List of all driver profiles</returns>
         public List<DriverProfile> GetAll()
         {
 
@@ -33,8 +41,8 @@ namespace Business
         /// <summary>
         /// Gets a driver profile with a given id from the table DriverProfile
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Id used to find the driver profile</param>
+        /// <returns>Driver profile with the given id</returns>
         public DriverProfile Get(int id)
         {
 
@@ -45,7 +53,7 @@ namespace Business
         /// <summary>
         /// Adds a driver profile to the table DriverProfiles
         /// </summary>
-        /// <param name="driverProfile"></param>
+        /// <param name="driverProfile">Driver profile that will be added to the table</param>
         public void Add(DriverProfile driverProfile)
         {
 
@@ -56,7 +64,7 @@ namespace Business
         /// <summary>
         /// Updates the changes for a given driver profile from the table DriverProfile
         /// </summary>
-        /// <param name="driverProfile"></param>
+        /// <param name="driverProfile">Driver profile that will be updated</param>
         public void Update(DriverProfile driverProfile)
         {
 
@@ -71,7 +79,7 @@ namespace Business
         /// <summary>
         /// Deletes a driver profile with a given id from the table DriverProfiles
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">Id of the given driver profile</param>
         public void Delete(int id)
         {
             var item = uberContext.DriverProfiles.Find(id);

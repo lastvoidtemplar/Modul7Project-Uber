@@ -8,14 +8,22 @@ using System.Threading.Tasks;
 
 namespace Business
 {
+    /// <summary>
+    /// Business logic of the table Orders
+    /// </summary>
     public class OrderBusiness
     {
         private UberContext uberContext;
+        /// <summary>
+        /// Constructer used in tests
+        /// </summary>
         public OrderBusiness(UberContext uberContext)
         {
             this.uberContext = uberContext;
         }
-
+        /// <summary>
+        /// Constructor used in Presentation layer
+        /// </summary>
         public OrderBusiness()
         {
             uberContext = new UberContext();
@@ -23,7 +31,7 @@ namespace Business
         /// <summary>
         /// Gets all orders from the table Orders
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List of all orders</returns>
         public List<Order> GetAll()
         {
             return uberContext.Orders.ToList();
@@ -31,8 +39,8 @@ namespace Business
         /// <summary>
         /// Gets an order with a given id from the table Orders
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Id used to find the order</param>
+        /// <returns>Order with the given id</returns>
         public Order Get(int id)
         {
             return uberContext.Orders.FirstOrDefault(m => m.Id == id);
@@ -40,7 +48,7 @@ namespace Business
         /// <summary>
         /// Adds an order to the table Orders
         /// </summary>
-        /// <param name="order"></param>
+        /// <param name="order">Order that will be added to the table</param>
         public void Add(Order order)
         {
             uberContext.Orders.Add(order);
@@ -49,7 +57,7 @@ namespace Business
         /// <summary>
         /// Updates the changes for a given order from the table Orders
         /// </summary>
-        /// <param name="order"></param>
+        /// <param name="order">Order that will be updated</param>
         public void Update(Order order)
         {
             var item = uberContext.Orders.FirstOrDefault(m => m.Id == order.Id);
@@ -62,7 +70,7 @@ namespace Business
         /// <summary>
         /// Deletes an order with a given id from the table Orders
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">The id of the given order</param>
         public void Delete(int id)
         {
             var item = uberContext.Orders.Find(id);
