@@ -12,11 +12,17 @@ namespace Uber.Presention.Views
     {
         private UserBusiness userBusiness = new UserBusiness();
 
+        /// <summary>
+        /// Constructor used by the display.
+        /// </summary>
         public UserView()
         {
             Input();
         }
 
+        /// <summary>
+        /// Shows all the commands that the user can use.
+        /// </summary>
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
@@ -29,6 +35,10 @@ namespace Uber.Presention.Views
             Console.WriteLine("5. Delete user by ID");
             Console.WriteLine("6. Back to MAIN MENU");
         }
+
+        /// <summary>
+        /// Converts the input and does the selected command.
+        /// </summary>
         private void Input()
         {
 
@@ -49,6 +59,10 @@ namespace Uber.Presention.Views
                 }
             } while (command != closedCommandId);
         }
+
+        /// <summary>
+        /// Aks the user for user parameters and creates an user with those parameters, after that adds that user to the table Users.
+        /// </summary>
         private void Add()
         {
             User user = new User();
@@ -62,6 +76,10 @@ namespace Uber.Presention.Views
             user.CountOrders = int.Parse(Console.ReadLine());
             userBusiness.Add(user);
         }
+
+        /// <summary>
+        /// Lists all users from the table Users.
+        /// </summary>
         private void ListAll()
         {
             Console.WriteLine(new string('-', 40));
@@ -75,6 +93,10 @@ namespace Uber.Presention.Views
             }
             Console.WriteLine(new string('-', 40));
         }
+
+        /// <summary>
+        /// Aks the user for id, after that gets the user with that id and asks for changes.
+        /// </summary>
         private void Update()
         {
             Console.WriteLine("Enter ID to update: ");
@@ -97,6 +119,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("User not found!");
             }
         }
+
+        /// <summary>
+        /// Asks the user for id, after that lists the user with that id.
+        /// </summary>
         private void Fetch()
         {
             Console.WriteLine("Enter ID to fetch: ");
@@ -117,6 +143,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("User not found!");
             }
         }
+
+        /// <summary>
+        /// Aks the user for id, after that deletes the user with that id.
+        /// </summary>
         private void Delete()
         {
             Console.WriteLine("Enter ID to delete: ");

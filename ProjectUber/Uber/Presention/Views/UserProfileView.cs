@@ -13,11 +13,17 @@ namespace Uber.Presention.Views
         private UserProfileBusiness userProfileBusiness = new UserProfileBusiness();
         private UserBusiness userBusiness = new UserBusiness();
 
+        /// <summary>
+        /// Constructor used by the display.
+        /// </summary>
         public UserProfileView()
         {
             Input();
         }
 
+        /// <summary>
+        /// Shows all the commands that the user can use.
+        /// </summary>
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
@@ -30,6 +36,10 @@ namespace Uber.Presention.Views
             Console.WriteLine("5. Delete userprofile by ID");
             Console.WriteLine("6. Back to MAIN MENU");
         }
+
+        /// <summary>
+        /// Converts the input and does the selected command. Also checks if tables Users is empty.
+        /// </summary>
         private void Input()
         {
             if (userBusiness.GetAll().Count == 0)
@@ -58,6 +68,10 @@ namespace Uber.Presention.Views
                 } while (command != closedCommandId);
             }
         }
+
+        /// <summary>
+        /// Aks the user for user profile parameters and creates an user profile with those parameters, after that adds that user profile to the table UserProfiles.
+        /// </summary>
         private void Add()
         {
             UserProfile userProfile = new UserProfile();
@@ -69,6 +83,10 @@ namespace Uber.Presention.Views
             userProfile.UserId = int.Parse(Console.ReadLine());          
             userProfileBusiness.Add(userProfile);
         }
+
+        /// <summary>
+        /// Lists all user profiles from the table UserProfiles.
+        /// </summary>
         private void ListAll()
         {
             Console.WriteLine(new string('-', 40));
@@ -82,6 +100,10 @@ namespace Uber.Presention.Views
             }
             Console.WriteLine(new string('-', 40));
         }
+
+        /// <summary>
+        /// Aks the user for id, after that gets the user profile with that id and asks for changes.
+        /// </summary>
         private void Update()
         {
             Console.WriteLine("Enter ID to update: ");
@@ -102,6 +124,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("Userprofile not found!");
             }
         }
+
+        /// <summary>
+        /// Asks the user for id, after that lists the user profile with that id.
+        /// </summary>
         private void Fetch()
         {
             Console.WriteLine("Enter ID to fetch: ");
@@ -121,6 +147,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("Userprofile not found!");
             }
         }
+
+        /// <summary>
+        /// Aks the user for id, after that deletes the user profile with that id.
+        /// </summary>
         private void Delete()
         {
             Console.WriteLine("Enter ID to delete: ");
@@ -128,6 +158,12 @@ namespace Uber.Presention.Views
             userProfileBusiness.Delete(id);
             Console.WriteLine("Done.");
         }
+
+        /// <summary>
+        /// Encrypts the password so that hackers can not steel your password.
+        /// </summary>
+        /// <param name="text">The password</param>
+        /// <returns>The encrypted password</returns>
         private string Encrypt(string text)
         {
             //TO DO

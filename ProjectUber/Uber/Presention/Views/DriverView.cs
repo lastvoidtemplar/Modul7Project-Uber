@@ -12,11 +12,18 @@ namespace Uber.Presention.Views
     {
         private DriverBusiness driverBusiness = new DriverBusiness();
         private VehicleBusiness vehicleBusiness = new VehicleBusiness();
+
+        /// <summary>
+        /// Constructor used by the display.
+        /// </summary>
         public DriverView()
         {
             Input();
         }
 
+        /// <summary>
+        /// Shows all the commands that the user can use.
+        /// </summary>
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
@@ -29,6 +36,10 @@ namespace Uber.Presention.Views
             Console.WriteLine("5. Delete driver by ID");
             Console.WriteLine("6. Back to MAIN MENU");
         }
+
+        /// <summary>
+        /// Converts the input and does the selected command. Also checks if table Vehicles is empty.
+        /// </summary>
         private void Input()
         {
             if (vehicleBusiness.GetAll().Count == 0) 
@@ -57,6 +68,10 @@ namespace Uber.Presention.Views
                 } while (command != closedCommandId);
             }
         }
+
+        /// <summary>
+        /// Aks the user for driver parameters and creates a driver with those parameters, after that adds that driver to the table Drivers.
+        /// </summary>
         private void Add()
         {
             Driver driver = new Driver();
@@ -74,6 +89,10 @@ namespace Uber.Presention.Views
             driver.VehicleId = int.Parse(Console.ReadLine());
             driverBusiness.Add(driver);
         }
+
+        /// <summary>
+        /// Lists all drivers from the table Drivers.
+        /// </summary>
         private void ListAll()
         {
             Console.WriteLine(new string('-', 40));
@@ -87,6 +106,10 @@ namespace Uber.Presention.Views
             }
             Console.WriteLine(new string('-', 40));
         }
+
+        /// <summary>
+        /// Aks the user for id, after that gets the driver with that id and asks for changes.
+        /// </summary>
         private void Update()
         {
             Console.WriteLine("Enter ID to update: ");
@@ -113,6 +136,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("Driver not found!");
             }
         }
+
+        /// <summary>
+        /// Asks the user for id, after that lists the driver with that id.
+        /// </summary>
         private void Fetch()
         {
             Console.WriteLine("Enter ID to fetch: ");
@@ -135,6 +162,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("Driver not found!");
             }
         }
+
+        /// <summary>
+        /// Aks the user for id, after that deletes the driver with that id.
+        /// </summary>
         private void Delete()
         {
             Console.WriteLine("Enter ID to delete: ");
