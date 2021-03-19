@@ -8,14 +8,22 @@ using System.Threading.Tasks;
 
 namespace Business
 {
+    /// <summary>
+    /// Business logic of the table Towns
+    /// </summary>
     public class TownBusiness
     {
         private UberContext uberContext;
+        /// <summary>
+        /// Constructer used in tests
+        /// </summary>
         public TownBusiness(UberContext uberContext)
         {
             this.uberContext = uberContext;
         }
-
+        /// <summary>
+        /// Constructor used in Presentation layer
+        /// </summary>
         public TownBusiness()
         {
             uberContext = new UberContext();
@@ -23,7 +31,7 @@ namespace Business
         /// <summary>
         /// Gets all towns from the table Towns
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List of all towns</returns>
         public List<Town> GetAll()
         {
             return uberContext.Towns.ToList();
@@ -31,8 +39,8 @@ namespace Business
         /// <summary>
         /// Gets a town with a given id from the table Towns
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">Id used to find the town</param>
+        /// <returns>Town with the given id</returns>
         public Town Get(int id)
         {
             return uberContext.Towns.FirstOrDefault(m => m.Id == id);
@@ -40,7 +48,7 @@ namespace Business
         /// <summary>
         /// Adds a town to the table Towns
         /// </summary>
-        /// <param name="town"></param>
+        /// <param name="town">Town that will be added to the table</param>
         public void Add(Town town)
         {
             uberContext.Towns.Add(town);
@@ -49,7 +57,7 @@ namespace Business
         /// <summary>
         /// Updates the changes to a given town from the table Towns
         /// </summary>
-        /// <param name="town"></param>
+        /// <param name="town">Town that will be updated</param>
         public void Update(Town town)
         {
             var item = uberContext.Towns.FirstOrDefault(m => m.Id == town.Id);
@@ -62,7 +70,7 @@ namespace Business
         /// <summary>
         /// Deletes a town with a given id from the table Towns
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">The id of the given town</param>
         public void Delete(int id)
         {
             var item = uberContext.Towns.Find(id);

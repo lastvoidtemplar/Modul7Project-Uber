@@ -11,6 +11,9 @@ namespace Data.Models
 {
     public class Driver
     {
+        /// <summary>
+        /// Primary Key
+        /// </summary>
         [Key]
         public int Id { get; set; }
         [Required]
@@ -27,8 +30,14 @@ namespace Data.Models
         [Required]
         [DefaultValue(3)]
         public float Rating { get; set; }
+        /// <summary>
+        /// Foreign Key connected with table Vehicles
+        /// </summary>
         [ForeignKey("Vehicle")]
         public int VehicleId { get; set; }
+        /// <summary>
+        /// Navigation property
+        /// </summary>
         public Vehicle Vehicle { get; set; }
         public override string ToString()
         {
