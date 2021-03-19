@@ -18,12 +18,18 @@ namespace UberAppForm.Forms
         private UserBusiness userBusiness = new UserBusiness();
         private int editid = 0;
         private int selectedUser = 0;
+        /// <summary>
+        /// Constructor of UserProfileForm. Checks if there are users in table Users.
+        /// </summary>
         public UserProfileForm()
         {
             InitializeComponent();
             if (userBusiness.GetAll().Count != 0) selectedUser = userBusiness.GetAll().First().Id;
             else UsersTableEmptyMessage();
         }
+        /// <summary>
+        /// Show a message in a MessageBox that table Users is empty.
+        /// </summary>
         private void UsersTableEmptyMessage()
         {
             string message = "Table Users is empty! Enter user first.";
@@ -35,30 +41,45 @@ namespace UberAppForm.Forms
         }
         public MainForm main;
         public bool succLoad = true;
+        /// <summary>
+        /// Fills dataGrids and clears the textBoxes.
+        /// </summary>
         private void UserProfileForm_Load(object sender, EventArgs e)
         {
             UpdateGrid();
             UpdateUserGrid();
             ClearTextBoxes();          
         }
-
+        /// <summary>
+        ///  Fills userprofile dataGridView with the context of the table UserProfiles.
+        /// </summary>
         private void UpdateGrid()
         {
             dataGridView1.DataSource = userProfileBusiness.GetAll();
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+        /// <summary>
+        ///  Fills users dataGridView with the context of the table Users.
+        /// </summary>
         private void UpdateUserGrid()
         {
             dataGridView2.DataSource = userBusiness.GetAll();
             dataGridView2.ReadOnly = true;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+        /// <summary>
+        /// Clears all textBoxes.
+        /// </summary>
         private void ClearTextBoxes()
         {
             UsernameTextBox.Text = "";
             PasswordTextBox.Text = "";
         }
+        /// <summary>
+        /// Gets the id of the selected user.
+        /// </summary>
+        /// <returns> Returns the id of the selected user</returns>
         private int GetIdOfSelectedUser()
         {
             if (dataGridView2.SelectedRows.Count > 0)
@@ -69,6 +90,9 @@ namespace UberAppForm.Forms
             }
             return selectedUser;
         }
+        /// <summary>
+        /// Gets the information from the textBoxes and userDataGrid, creates a userProfile with this parameters and adds it in the database.
+        /// </summary>
         private void InsertButton_Click(object sender, EventArgs e)
         {
             string username = UsernameTextBox.Text;
@@ -83,7 +107,10 @@ namespace UberAppForm.Forms
             ClearTextBoxes();
             dataGridView2.ClearSelection();
         }
-
+        /// <summary>
+        /// Gets the paramaters of selected userProfile and shows them in the textBoxes.
+        /// </summary>
+        /// <param name="id">With this id it finds selected userProfile.</param>
         private void UpdateTextBoxes(int id)
         {
             UserProfile userProfile = userProfileBusiness.Get(id);
@@ -92,7 +119,9 @@ namespace UberAppForm.Forms
             dataGridView2.ClearSelection();
             selectedUser = userProfile.UserId;
         }
-
+        /// <summary>
+        /// Switches save and update button.
+        /// </summary>
         private void ToggleSaveUpdate()
         {
             if (UpdateButton.Visible)
@@ -106,7 +135,9 @@ namespace UberAppForm.Forms
                 SaveButton.Visible = false;
             }
         }
-
+        /// <summary>
+        /// Chooses userProfile, gets his paramaters and shows them in the textBoxes.
+        /// </summary>
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -118,13 +149,15 @@ namespace UberAppForm.Forms
                 DisableSelect();
                 editid = id;
             }
-        }
-
+        } 
         private void DisableSelect()
         {
             dataGridView1.Enabled = false;
         }
-
+        /// <summary>
+        /// Updates the paramaters of the selected userProfile with these from the textBoxes.
+        /// </summary>
+        /// <returns>Returns the updated userProfile.</returns>
         private UserProfile GetEditUserProfile()
         {
             UserProfile userProfile = new UserProfile();
@@ -144,7 +177,9 @@ namespace UberAppForm.Forms
             dataGridView1.ClearSelection();
             dataGridView1.Enabled = true;
         }
-
+        /// <summary>
+        /// Updates the selected userProfile in the database.
+        /// </summary>
         private void SaveButton_Click(object sender, EventArgs e)
         {
             UserProfile editUserProfile = GetEditUserProfile();
@@ -155,7 +190,9 @@ namespace UberAppForm.Forms
             ClearTextBoxes();
             dataGridView2.ClearSelection();
         }
-
+        /// <summary>
+        /// Deletes the selected userProfile from the database.
+        /// </summary>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -167,7 +204,9 @@ namespace UberAppForm.Forms
                 ResetSelect();
             }
         }
-
+        /// <summary>
+        /// Returns to the main menu.
+        /// </summary>
         private void BackButton_Click(object sender, EventArgs e)
         {
             main.Show();
