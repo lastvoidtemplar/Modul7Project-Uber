@@ -11,6 +11,9 @@ namespace Data.Models
 {
     public class User
     {
+        /// <summary>
+        /// Primary Key
+        /// </summary>
         [Key]
         public int Id { get; set; }
         [Required]

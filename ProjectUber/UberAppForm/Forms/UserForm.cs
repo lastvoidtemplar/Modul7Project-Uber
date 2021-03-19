@@ -16,27 +16,35 @@ namespace UberAppForm.Forms
     {
         private UserBusiness userBusiness = new UserBusiness();
         private int editid = 0;
-
+        /// <summary>
+        /// Constructor of UserForm.
+        /// </summary>
         public UserForm()
         {
             InitializeComponent();
         }
 
         public MainForm main;
-
+        /// <summary>
+        /// Fills dataGrid and clears the textBoxes.
+        /// </summary>
         private void UserForm_Load(object sender, EventArgs e)
         {
             UpdateGrid();
             ClearTextBoxes();
         }
-
+        /// <summary>
+        ///  Fills user dataGridView with the context of the table Users.
+        /// </summary>
         private void UpdateGrid()
         {
             dataGridView1.DataSource = userBusiness.GetAll();
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
-
+        /// <summary>
+        /// Clears all textBoxes.
+        /// </summary>
         private void ClearTextBoxes()
         {
             FirstNameTextBox.Text = "";
@@ -44,7 +52,9 @@ namespace UberAppForm.Forms
             AgeTextBox.Text = "0";
             CountOrdersTextBox.Text = "0";
         }
-
+        /// <summary>
+        /// Gets the information from the textBoxes, creates a user with this parameters and adds it in the database.
+        /// </summary>
         private void InsertButton_Click(object sender, EventArgs e)
         {
             string firstname = FirstNameTextBox.Text;
@@ -61,7 +71,10 @@ namespace UberAppForm.Forms
             UpdateGrid();
             ClearTextBoxes();
         }
-
+        /// <summary>
+        /// Gets the paramaters of selected user and shows them in the textBoxes.
+        /// </summary>
+        /// <param name="id">With this id it finds selected user.</param>
         private void UpdateTextBoxes(int id)
         {
             User user = userBusiness.Get(id);
@@ -70,7 +83,9 @@ namespace UberAppForm.Forms
             AgeTextBox.Text = user.Age.ToString();
             CountOrdersTextBox.Text = user.CountOrders.ToString();
         }
-
+        /// <summary>
+        /// Switches save and update button.
+        /// </summary>
         private void ToggleSaveUpdate()
         {
             if (UpdateButton.Visible)
@@ -84,7 +99,9 @@ namespace UberAppForm.Forms
                 SaveButton.Visible = false;
             }
         }
-
+        /// <summary>
+        /// Chooses user, gets his paramaters and shows them in the textBoxes.
+        /// </summary>
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -102,7 +119,10 @@ namespace UberAppForm.Forms
         {
             dataGridView1.Enabled = false;
         }
-
+        /// <summary>
+        /// Updates the paramaters of the selected user with these from the textBoxes.
+        /// </summary>
+        /// <returns>Returns the updated user.</returns>
         private User GetEditUser()
         {
             User user = new User();
@@ -125,7 +145,9 @@ namespace UberAppForm.Forms
             dataGridView1.ClearSelection();
             dataGridView1.Enabled = true;
         }
-
+        /// <summary>
+        /// Updates the selected user in the database.
+        /// </summary>
         private void SaveButton_Click(object sender, EventArgs e)
         {
             User editUser = GetEditUser();
@@ -135,7 +157,9 @@ namespace UberAppForm.Forms
             ToggleSaveUpdate();
             ClearTextBoxes();
         }
-
+        /// <summary>
+        /// Deletes the selected user from the database.
+        /// </summary>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -147,7 +171,9 @@ namespace UberAppForm.Forms
                 ResetSelect();
             }
         }
-
+        /// <summary>
+        /// Returns to the main menu.
+        /// </summary>
         private void BackButton_Click(object sender, EventArgs e)
         {
             main.Show();

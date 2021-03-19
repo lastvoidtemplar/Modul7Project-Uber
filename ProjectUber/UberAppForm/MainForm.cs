@@ -40,8 +40,8 @@ namespace UberAppForm
         {
             UserProfileForm userProfileForm = new UserProfileForm();
             userProfileForm.main = this;
-            userProfileForm.Show();
-            this.Hide();
+            if (userProfileForm.succLoad == true) { userProfileForm.Show(); this.Hide(); }
+            else userProfileForm.Close();
         }
 
         private void OpenVehicleForm_Click(object sender, EventArgs e)
@@ -56,24 +56,24 @@ namespace UberAppForm
         {
             DriverForm driverForm = new DriverForm();
             driverForm.main = this;
-            driverForm.Show();
-            this.Hide();
+            if (driverForm.succLoad == true) { driverForm.Show(); this.Hide(); }
+            else driverForm.Close();          
         }
 
         private void OpenDriverProfileForm_Click(object sender, EventArgs e)
         {
             DriverProfileForm driverProfileForm = new DriverProfileForm();
             driverProfileForm.main = this;
-            driverProfileForm.Show();
-            this.Hide();
+            if (driverProfileForm.succLoad == true) { driverProfileForm.Show(); this.Hide(); }
+            else driverProfileForm.Close();
         }
 
         private void OpenOrderForm_Click(object sender, EventArgs e)
         {
             OrderForm orderForm = new OrderForm();
             orderForm.main = this;
-            orderForm.Show();
-            this.Hide();
+            if (orderForm.succLoad == true) { orderForm.Show(); this.Hide(); }
+            else orderForm.Close();
         }
     }
 }

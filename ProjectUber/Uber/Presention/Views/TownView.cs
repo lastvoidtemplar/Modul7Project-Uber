@@ -12,11 +12,17 @@ namespace Uber.Presention.Views
     {
         private TownBusiness townBusiness = new TownBusiness();
 
+        /// <summary>
+        /// Constructor used by the display.
+        /// </summary>
         public TownView()
         {
             Input();
         }
 
+        /// <summary>
+        /// Shows all the commands that the user can use.
+        /// </summary>
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
@@ -29,6 +35,10 @@ namespace Uber.Presention.Views
             Console.WriteLine("5. Delete town by ID");
             Console.WriteLine("6. Back to MAIN MENU");
         }
+
+        /// <summary>
+        /// Converts the input and does the selected command.
+        /// </summary>
         private void Input()
         {
 
@@ -49,6 +59,10 @@ namespace Uber.Presention.Views
                 }
             } while (command != closedCommandId);
         }
+
+        /// <summary>
+        /// Aks the user for town parameters and creates a town with those parameters, after that adds that town to the table Towns.
+        /// </summary>
         private void Add()
         {
             Town town = new Town();
@@ -60,23 +74,27 @@ namespace Uber.Presention.Views
             town.ZipCode = int.Parse(Console.ReadLine());
             townBusiness.Add(town);
         }
+
+        /// <summary>
+        /// Lists all towns from the table Towns.
+        /// </summary>
         private void ListAll()
         {
             Console.WriteLine(new string('-', 40));
             Console.WriteLine(new string(' ', 18) + "Towns" + new string(' ', 17));
             Console.WriteLine(new string('-', 40));
             List<Town> towns = townBusiness.GetAll();
+            Console.WriteLine("Id || Name || Country || Zipcode");
             foreach (Town town in towns)
             {
-                Console.WriteLine(new string('-', 40));
-                Console.WriteLine("Id: " + town.Id);
-                Console.WriteLine("Name: " + town.Name);
-                Console.WriteLine("Country: " + town.Country);
-                Console.WriteLine("Zipcode: " + town.ZipCode);
-                Console.WriteLine(new string('-', 40));
+                Console.WriteLine($"{town.Id} || {town.Name} || {town.Country} || {town.ZipCode}");
             }
             Console.WriteLine(new string('-', 40));
         }
+
+        /// <summary>
+        /// Aks the user for id, after that gets the town with that id and asks for changes.
+        /// </summary>
         private void Update()
         {
             Console.WriteLine("Enter ID to update: ");
@@ -97,6 +115,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("Town not found!");
             }
         }
+
+        /// <summary>
+        /// Asks the user for id, after that lists the town with that id.
+        /// </summary>
         private void Fetch()
         {
             Console.WriteLine("Enter ID to fetch: ");
@@ -116,6 +138,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("Town not found!");
             }
         }
+
+        /// <summary>
+        /// Aks the user for id, after that deletes the town with that id.
+        /// </summary>
         private void Delete()
         {
             Console.WriteLine("Enter ID to delete: ");

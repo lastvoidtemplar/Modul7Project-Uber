@@ -10,13 +10,20 @@ namespace Uber.Presention.Views
 {
     public  class UserProfileView
     {
-        private UserProfileBusiness userBusiness = new UserProfileBusiness();
+        private UserProfileBusiness userProfileBusiness = new UserProfileBusiness();
+        private UserBusiness userBusiness = new UserBusiness();
 
+        /// <summary>
+        /// Constructor used by the display.
+        /// </summary>
         public UserProfileView()
         {
             Input();
         }
 
+        /// <summary>
+        /// Shows all the commands that the user can use.
+        /// </summary>
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
@@ -29,26 +36,42 @@ namespace Uber.Presention.Views
             Console.WriteLine("5. Delete userprofile by ID");
             Console.WriteLine("6. Back to MAIN MENU");
         }
+
+        /// <summary>
+        /// Converts the input and does the selected command. Also checks if tables Users is empty.
+        /// </summary>
         private void Input()
         {
-
-            int command = 0;
-            int closedCommandId = 6;
-            do
+            if (userBusiness.GetAll().Count == 0)
             {
-                ShowMenu();
-                command = int.Parse(Console.ReadLine());
-                switch (command)
+                Console.WriteLine();
+                Console.WriteLine("Table Users is empty! Enter user first.");
+                Console.WriteLine();
+            }
+            else
+            {
+                int command = 0;
+                int closedCommandId = 6;
+                do
                 {
-                    case 1: ListAll(); break;
-                    case 2: Add(); break;
-                    case 3: Update(); break;
-                    case 4: Fetch(); break;
-                    case 5: Delete(); break;
-                    default: break;
-                }
-            } while (command != closedCommandId);
+                    ShowMenu();
+                    command = int.Parse(Console.ReadLine());
+                    switch (command)
+                    {
+                        case 1: ListAll(); break;
+                        case 2: Add(); break;
+                        case 3: Update(); break;
+                        case 4: Fetch(); break;
+                        case 5: Delete(); break;
+                        default: break;
+                    }
+                } while (command != closedCommandId);
+            }
         }
+
+        /// <summary>
+        /// Aks the user for user profile parameters and creates an user profile with those parameters, after that adds that user profile to the table UserProfiles.
+        /// </summary>
         private void Add()
         {
             UserProfile userProfile = new UserProfile();
@@ -58,30 +81,34 @@ namespace Uber.Presention.Views
             userProfile.Password = Encrypt(Console.ReadLine());
             Console.WriteLine("Enter user id: ");
             userProfile.UserId = int.Parse(Console.ReadLine());          
-            userBusiness.Add(userProfile);
+            userProfileBusiness.Add(userProfile);
         }
+
+        /// <summary>
+        /// Lists all user profiles from the table UserProfiles.
+        /// </summary>
         private void ListAll()
         {
             Console.WriteLine(new string('-', 40));
             Console.WriteLine(new string(' ', 14) + "UserProfiles" + new string(' ', 14));
             Console.WriteLine(new string('-', 40));
-            List<UserProfile> usersProfiles =userBusiness.GetAll();
+            List<UserProfile> usersProfiles =userProfileBusiness.GetAll();
+            Console.WriteLine("Id || Username || Password || UserProfileId");
             foreach (UserProfile userProfile in usersProfiles)
             {
-                Console.WriteLine(new string('-', 40));
-                Console.WriteLine("Id: " + userProfile.Id);
-                Console.WriteLine("Username: " + userProfile.Username);
-                Console.WriteLine("Password: " + userProfile.Password);
-                Console.WriteLine(userProfile.User);
-                Console.WriteLine(new string('-', 40));
+                Console.WriteLine($"{userProfile.Id} || {userProfile.Username} || {userProfile.Password} || {userProfile.UserId}");
             }
             Console.WriteLine(new string('-', 40));
         }
+
+        /// <summary>
+        /// Aks the user for id, after that gets the user profile with that id and asks for changes.
+        /// </summary>
         private void Update()
         {
             Console.WriteLine("Enter ID to update: ");
             int id = int.Parse(Console.ReadLine());
-            UserProfile userProfile = userBusiness.Get(id);
+            UserProfile userProfile = userProfileBusiness.Get(id);
             if (userProfile != null)
             {
                 Console.WriteLine("Enter  username: ");
@@ -90,18 +117,22 @@ namespace Uber.Presention.Views
                 userProfile.Password = Encrypt(Console.ReadLine());
                 Console.WriteLine("Enter user id: ");
                 userProfile.UserId = int.Parse(Console.ReadLine());
-                userBusiness.Update(userProfile);
+                userProfileBusiness.Update(userProfile);
             }
             else
             {
                 Console.WriteLine("Userprofile not found!");
             }
         }
+
+        /// <summary>
+        /// Asks the user for id, after that lists the user profile with that id.
+        /// </summary>
         private void Fetch()
         {
             Console.WriteLine("Enter ID to fetch: ");
             int id = int.Parse(Console.ReadLine());
-            UserProfile userProfile = userBusiness.Get(id);
+            UserProfile userProfile = userProfileBusiness.Get(id);
             if (userProfile != null)
             {
                 Console.WriteLine(new string('-', 40));
@@ -116,13 +147,23 @@ namespace Uber.Presention.Views
                 Console.WriteLine("Userprofile not found!");
             }
         }
+
+        /// <summary>
+        /// Aks the user for id, after that deletes the user profile with that id.
+        /// </summary>
         private void Delete()
         {
             Console.WriteLine("Enter ID to delete: ");
             int id = int.Parse(Console.ReadLine());
-            userBusiness.Delete(id);
+            userProfileBusiness.Delete(id);
             Console.WriteLine("Done.");
         }
+
+        /// <summary>
+        /// Encrypts the password so that hackers can not steel your password.
+        /// </summary>
+        /// <param name="text">The password</param>
+        /// <returns>The encrypted password</returns>
         private string Encrypt(string text)
         {
             //TO DO

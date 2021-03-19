@@ -18,36 +18,60 @@ namespace UberAppForm.Forms
         private VehicleBusiness vehicleBusiness = new VehicleBusiness();
         private int editid = 0;
         private int selectedVehicle = 0;
-
+        /// <summary>
+        /// Constructor of DriverForm. Checks if there are vehecles in table Vehicles.
+        /// </summary>
         public DriverForm()
         {
             InitializeComponent();
+            if (vehicleBusiness.GetAll().Count != 0) selectedVehicle = vehicleBusiness.GetAll().First().Id;
+            else TownTableEmptyMessage();
         }
-
+        /// <summary>
+        /// Show a message in a MessageBox that table Vehicles is empty.
+        /// </summary>
+        private void TownTableEmptyMessage()
+        {
+            string message = "Table Vehecles is empty! Enter vehicle first.";
+            DialogResult result = MessageBox.Show(message);
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                succLoad = false;
+            }
+        }
         public MainForm main;
-
+        public bool succLoad = true;
+        /// <summary>
+        /// Fills dataGrids and clears the textBoxes.
+        /// </summary>
         private void DriverForm_Load(object sender, EventArgs e)
         {
             UpdateGrid();
             UpdateVehicleGrid();
             ClearTextBoxes();
-            if (driverBusiness.GetAll().Count != 0)  selectedVehicle = vehicleBusiness.GetAll().First().Id; ;
+            
         }
-
+        /// <summary>
+        ///  Fills driver dataGridView with the context of the table Drivers.
+        /// </summary>
         private void UpdateGrid()
         {
             dataGridView1.DataSource = driverBusiness.GetAll();
             dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
-
+        /// <summary>
+        ///  Fills vehicle dataGridView with the context of the table Vehicles.
+        /// </summary>
         private void UpdateVehicleGrid()
         {
             dataGridView2.DataSource = vehicleBusiness.GetAll();
             dataGridView2.ReadOnly = true;
             dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
-
+        /// <summary>
+        /// Clears all textBoxes.
+        /// </summary>
         private void ClearTextBoxes()
         {
             FirstNameTextBox.Text = "";
@@ -56,7 +80,10 @@ namespace UberAppForm.Forms
             CountOrdersTextBox.Text = "0";
             RatingTextBox.Text = "0";
         }
-
+        /// <summary>
+        /// Gets the id of the selected vehicle.
+        /// </summary>
+        /// <returns> Returns the id of the selected vehicle</returns>
         private int GetIdOfSelectedVehicle()
         {
             if (dataGridView2.SelectedRows.Count > 0)
@@ -67,7 +94,9 @@ namespace UberAppForm.Forms
             }
             return selectedVehicle;
         }
-
+        /// <summary>
+        /// Gets the information from the textBoxes and vehicleDataGrid, creates a driver with this parameters and adds it in the database.
+        /// </summary>
         private void InsertButton_Click(object sender, EventArgs e)
         {
             string firstName = FirstNameTextBox.Text;
@@ -91,7 +120,10 @@ namespace UberAppForm.Forms
             ClearTextBoxes();
             dataGridView2.ClearSelection();
         }
-
+        /// <summary>
+        /// Gets the paramaters of selected driver and shows them in the textBoxes.
+        /// </summary>
+        /// <param name="id">With this id it finds selected driver.</param>
         private void UpdateTextBoxes(int id)
         {
             Driver driver = driverBusiness.Get(id);
@@ -102,7 +134,9 @@ namespace UberAppForm.Forms
             dataGridView2.ClearSelection();
             selectedVehicle = driver.VehicleId;
         }
-
+        /// <summary>
+        /// Switches save and update button.
+        /// </summary>
         private void ToggleSaveUpdate()
         {
             if (UpdateButton.Visible)
@@ -116,7 +150,9 @@ namespace UberAppForm.Forms
                 SaveButton.Visible = false;
             }
         }
-
+        /// <summary>
+        /// Chooses driver,gets his paramaters and shows them in the textBoxes.
+        /// </summary>
         private void UpdateButton_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -134,7 +170,10 @@ namespace UberAppForm.Forms
         {
             dataGridView1.Enabled = false;
         }
-
+        /// <summary>
+        /// Updates the paramaters of the selected driver with these from the textBoxes.
+        /// </summary>
+        /// <returns>Returns the updated driver.</returns>
         private Driver GetEditDriver()
         {
             Driver driver = new Driver();
@@ -163,7 +202,9 @@ namespace UberAppForm.Forms
             dataGridView1.ClearSelection();
             dataGridView1.Enabled = true;
         }
-
+        /// <summary>
+        /// Updates the selected driver in the database.
+        /// </summary>
         private void SaveButton_Click(object sender, EventArgs e)
         {
             Driver editDriver = GetEditDriver();
@@ -174,7 +215,9 @@ namespace UberAppForm.Forms
             ClearTextBoxes();
             dataGridView2.ClearSelection();
         }
-
+        /// <summary>
+        /// Deletes the selected driver from the database.
+        /// </summary>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -186,7 +229,9 @@ namespace UberAppForm.Forms
                 ResetSelect();
             }
         }
-
+        /// <summary>
+        /// Returns to the main menu.
+        /// </summary>
         private void BackButton_Click(object sender, EventArgs e)
         {
             main.Show();

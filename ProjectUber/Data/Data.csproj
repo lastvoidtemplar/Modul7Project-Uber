@@ -55,6 +55,10 @@
     <Compile Include="Migrations\202103060935014_Initial.designer.cs">
       <DependentUpon>202103060935014_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103190813049_Insert.cs" />
+    <Compile Include="Migrations\202103190813049_Insert.designer.cs">
+      <DependentUpon>202103190813049_Insert.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Driver.cs" />
     <Compile Include="Models\DriverProfile.cs" />
@@ -73,6 +77,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202103060935014_Initial.resx">
       <DependentUpon>202103060935014_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103190813049_Insert.resx">
+      <DependentUpon>202103190813049_Insert.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

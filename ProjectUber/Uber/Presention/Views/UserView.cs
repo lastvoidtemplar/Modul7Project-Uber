@@ -12,11 +12,17 @@ namespace Uber.Presention.Views
     {
         private UserBusiness userBusiness = new UserBusiness();
 
+        /// <summary>
+        /// Constructor used by the display.
+        /// </summary>
         public UserView()
         {
             Input();
         }
 
+        /// <summary>
+        /// Shows all the commands that the user can use.
+        /// </summary>
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
@@ -29,6 +35,10 @@ namespace Uber.Presention.Views
             Console.WriteLine("5. Delete user by ID");
             Console.WriteLine("6. Back to MAIN MENU");
         }
+
+        /// <summary>
+        /// Converts the input and does the selected command.
+        /// </summary>
         private void Input()
         {
 
@@ -49,6 +59,10 @@ namespace Uber.Presention.Views
                 }
             } while (command != closedCommandId);
         }
+
+        /// <summary>
+        /// Aks the user for user parameters and creates an user with those parameters, after that adds that user to the table Users.
+        /// </summary>
         private void Add()
         {
             User user = new User();
@@ -58,28 +72,31 @@ namespace Uber.Presention.Views
             user.LastName = Console.ReadLine();
             Console.WriteLine("Enter age: ");
             user.Age = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter count orders: ");
+            Console.WriteLine("Enter orders count: ");
             user.CountOrders = int.Parse(Console.ReadLine());
             userBusiness.Add(user);
         }
+
+        /// <summary>
+        /// Lists all users from the table Users.
+        /// </summary>
         private void ListAll()
         {
             Console.WriteLine(new string('-', 40));
             Console.WriteLine(new string(' ', 18) + "Users" + new string(' ', 17));
             Console.WriteLine(new string('-', 40));
             List<User> users = userBusiness.GetAll();
+            Console.WriteLine("Id || First name || Last name || Age || Orders count");
             foreach (User user in users)
             {
-                Console.WriteLine(new string('-', 40));
-                Console.WriteLine("Id: " + user.Id);
-                Console.WriteLine("First name: " + user.FirstName);
-                Console.WriteLine("Last name: " + user.LastName);
-                Console.WriteLine("Age: " + user.Age);
-                Console.WriteLine("Count orders: " + user.CountOrders);
-                Console.WriteLine(new string('-', 40));
+                Console.WriteLine($"{user.Id} || {user.FirstName} || {user.LastName} || {user.Age} || {user.CountOrders}");
             }
             Console.WriteLine(new string('-', 40));
         }
+
+        /// <summary>
+        /// Aks the user for id, after that gets the user with that id and asks for changes.
+        /// </summary>
         private void Update()
         {
             Console.WriteLine("Enter ID to update: ");
@@ -93,7 +110,7 @@ namespace Uber.Presention.Views
                 user.LastName = Console.ReadLine();
                 Console.WriteLine("Enter age: ");
                 user.Age = int.Parse(Console.ReadLine());
-                Console.WriteLine("Enter count orders: ");
+                Console.WriteLine("Enter orders count: ");
                 user.CountOrders = int.Parse(Console.ReadLine());
                 userBusiness.Update(user);
             }
@@ -102,6 +119,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("User not found!");
             }
         }
+
+        /// <summary>
+        /// Asks the user for id, after that lists the user with that id.
+        /// </summary>
         private void Fetch()
         {
             Console.WriteLine("Enter ID to fetch: ");
@@ -114,7 +135,7 @@ namespace Uber.Presention.Views
                 Console.WriteLine("First name: " + user.FirstName);
                 Console.WriteLine("Last name: " + user.LastName);
                 Console.WriteLine("Age: " +user.Age);
-                Console.WriteLine("Count orders: " + user.CountOrders);
+                Console.WriteLine("Orders count: " + user.CountOrders);
                 Console.WriteLine(new string('-', 40));
             }
             else
@@ -122,6 +143,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("User not found!");
             }
         }
+
+        /// <summary>
+        /// Aks the user for id, after that deletes the user with that id.
+        /// </summary>
         private void Delete()
         {
             Console.WriteLine("Enter ID to delete: ");

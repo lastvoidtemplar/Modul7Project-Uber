@@ -12,16 +12,25 @@ namespace Uber.Presention.Views
     public class OrderView
     {
         private OrderBusiness orderBusiness = new OrderBusiness();
+        private DriverProfileBusiness driverProfileBusiness = new DriverProfileBusiness();
+        private UserProfileBusiness userProfileBusiness = new UserProfileBusiness();
+        private TownBusiness townBusiness = new TownBusiness();
 
+        /// <summary>
+        /// Constructor used by the display.
+        /// </summary>
         public OrderView()
         {
             Input();
         }
 
+        /// <summary>
+        /// Shows all the commands that the user can use.
+        /// </summary>
         private void ShowMenu()
         {
             Console.WriteLine(new string('-', 40));
-            Console.WriteLine(new string(' ', 14) + "Vehicle MENU" + new string(' ', 18));
+            Console.WriteLine(new string(' ', 14) + "Order MENU" + new string(' ', 18));
             Console.WriteLine(new string('-', 40));
             Console.WriteLine("1. List all orders");
             Console.WriteLine("2. Add new order");
@@ -30,26 +39,54 @@ namespace Uber.Presention.Views
             Console.WriteLine("5. Delete order by ID");
             Console.WriteLine("6. Back to MAIN MENU");
         }
+
+        /// <summary>
+        /// Converts the input and does the selected command. Also checks if tables UserProfiles, DriverProfiles and Towns is empty.
+        /// </summary>
         private void Input()
         {
-
-            int command = 0;
-            int closedCommandId = 6;
-            do
+            if (userProfileBusiness.GetAll().Count == 0)
             {
-                ShowMenu();
-                command = int.Parse(Console.ReadLine());
-                switch (command)
+                Console.WriteLine();
+                Console.WriteLine("Table UserProfiles is empty! Enter userProfile first.");
+                Console.WriteLine();
+            }
+            else if (driverProfileBusiness.GetAll().Count == 0)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Table DriverProfiles is empty! Enter driverProfile first.");
+                Console.WriteLine();
+            }
+            else if (townBusiness.GetAll().Count == 0)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Table Towns is empty! Enter town first.");
+                Console.WriteLine();
+            }
+            else
+            {
+                int command = 0;
+                int closedCommandId = 6;
+                do
                 {
-                    case 1: ListAll(); break;
-                    case 2: Add(); break;
-                    case 3: Update(); break;
-                    case 4: Fetch(); break;
-                    case 5: Delete(); break;
-                    default: break;
-                }
-            } while (command != closedCommandId);
+                    ShowMenu();
+                    command = int.Parse(Console.ReadLine());
+                    switch (command)
+                    {
+                        case 1: ListAll(); break;
+                        case 2: Add(); break;
+                        case 3: Update(); break;
+                        case 4: Fetch(); break;
+                        case 5: Delete(); break;
+                        default: break;
+                    }
+                } while (command != closedCommandId);
+            }
         }
+
+        /// <summary>
+        /// Aks the user for order parameters and creates an order with those parameters, after that adds that order to the table Orders.
+        /// </summary>
         private void Add()
         {
             Order order = new Order();
@@ -66,24 +103,27 @@ namespace Uber.Presention.Views
             order.TownId = int.Parse(Console.ReadLine());
             orderBusiness.Add(order);
         }
+
+        /// <summary>
+        /// Lists all orders from the table Orders.
+        /// </summary>
         private void ListAll()
         {
             Console.WriteLine(new string('-', 40));
-            Console.WriteLine(new string(' ', 16) + "VEHICLES" + new string(' ', 16));
+            Console.WriteLine(new string(' ', 17) + "ORDERS" + new string(' ', 16));
             Console.WriteLine(new string('-', 40));
             List<Order> orders = orderBusiness.GetAll();
+            Console.WriteLine("Id || Date || Price || UserProfileId || DriverProfileId || TownId");
             foreach (Order order in orders)
             {
-                Console.WriteLine(new string('-', 40));
-                Console.WriteLine("Id: " + order.Id);
-                Console.WriteLine("Date: " + order.Date);
-                Console.WriteLine("Price: " + order.Price);
-                Console.WriteLine(order.UserProfile);
-                Console.WriteLine(order.DriverProfile);
-                Console.WriteLine(order.Town);
+                Console.WriteLine($"{order.Id} || {order.Date} || {order.Price} || {order.UserProfileId} || {order.DriverProfileId} || {order.TownId}");
             }
             Console.WriteLine(new string('-', 40));
         }
+
+        /// <summary>
+        /// Aks the user for id, after that gets the order with that id and asks for changes.
+        /// </summary>
         private void Update()
         {
             Console.WriteLine("Enter ID to update: ");
@@ -109,6 +149,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("Order not found!");
             }
         }
+
+        /// <summary>
+        /// Asks the user for id, after that lists the order with that id.
+        /// </summary>
         private void Fetch()
         {
             Console.WriteLine("Enter ID to fetch: ");
@@ -130,6 +174,10 @@ namespace Uber.Presention.Views
                 Console.WriteLine("Order not found!");
             }
         }
+
+        /// <summary>
+        /// Aks the user for id, after that deletes the order with that id.
+        /// </summary>
         private void Delete()
         {
             Console.WriteLine("Enter ID to delete: ");
