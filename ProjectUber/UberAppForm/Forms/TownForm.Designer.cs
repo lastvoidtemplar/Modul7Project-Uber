@@ -202,7 +202,7 @@ namespace UberAppForm.Forms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BackButton);
             this.Name = "TownForm";
-            this.Text = "Back";
+            this.Text = "TownForm";
             this.Load += new System.EventHandler(this.TownForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

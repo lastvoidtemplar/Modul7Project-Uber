@@ -75,6 +75,8 @@ namespace UberTests
             business.Add(town);
             mockSet.Verify(m => m.Add(It.IsAny<Town>()), Times.Once());
             mockContext.Verify(m => m.SaveChanges(), Times.Once());
+            var list = business.GetAll();
+            Assert.AreEqual(3, list.Count);
         }
         /// <summary>
         /// Creates Mockset which is connected to test list.
