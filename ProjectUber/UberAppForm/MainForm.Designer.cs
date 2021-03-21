@@ -121,7 +121,7 @@ namespace UberAppForm
             this.Controls.Add(this.OpenUserForm);
             this.Controls.Add(this.OpenTownForm);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "MenuForm";
             this.ResumeLayout(false);
 
         }
