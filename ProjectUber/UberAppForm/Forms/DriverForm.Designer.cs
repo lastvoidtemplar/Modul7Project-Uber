@@ -83,6 +83,7 @@ namespace UberAppForm.Forms
             this.UpdateButton.TabIndex = 33;
             this.UpdateButton.Text = "Update";
             this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
             // 
             // DeleteButton
             // 
